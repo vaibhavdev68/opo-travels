@@ -1,0 +1,12 @@
+{
+  "DOMESTIC_PACKAGES": [
+    { "id": 1, "name": "Himachal", "price": "9,999", "image": "/images/image1.jpg" },
+    { "id": 2, "name": "South India", "price": "8,999", "image": "/images/image1.jpg" },
+    { "id": 3, "name": "Golden Triangle", "price": "51,999", "image": "/images/image1.jpg" },
+    { "id": 4, "name": "North East", "price": "17,999", "image": "/images/image1.jpg" },
+    { "id": 5, "name": "Rajasthan", "price": "15,500", "image": "/images/image1.jpg" },
+    { "id": 6, "name": "Goa Beaches", "price": "6,999", "image": "/images/image1.jpg" },
+    { "id": 7, "name": "Goa Beaches", "price": "6,999", "image": "/images/image1.jpg" },
+    { "id": 8, "name": "Goa Beaches", "price": "6,999", "image": "/images/image1.jpg" }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "KERALA_RECOMMENDATIONS": [
+    {
+      "id": 1,
+      "title": "Kerala Delight Escape",
+      "duration": "3N/4D",
+      "location": "Kerala",
+      "rating": 4.2,
+      "image": "/images/image4.jpg",
+      "discountedPrice": 13999,
+      "perPersonText": "Per Adult"
+    },
+    {
+      "id": 2,
+      "title": "Misty Munnar Hills & Tea Gardens",
+      "duration": "4N/5D",
+      "location": "Kerala",
+      "rating": 4.6,
+      "image": "/images/image3.jpg",
+      "discountedPrice": 15999,
+      "perPersonText": "Per Adult"
+    },
+    {
+      "id": 3,
+      "title": "Houseboat Serenity in Alleppey",
+      "duration": "2N/3D",
+      "location": "Kerala",
+      "rating": 4.4,
+      "image": "/images/image2.jpg",
+      "discountedPrice": 11999,
+      "perPersonText": "Per Adult"
+    },
+    {
+      "id": 4,
+      "title": "Backwaters & Beaches Luxury Escape",
+      "duration": "5N/6D",
+      "location": "Kerala",
+      "rating": 4.8,
+      "image": "/images/image1.jpg",
+      "discountedPrice": 19999,
+      "perPersonText": "Per Adult"
+    }
+  ]
+}

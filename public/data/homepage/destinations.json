@@ -1,0 +1,70 @@
+{
+  "DESTINATIONS": [
+    {
+      "id": 1,
+      "name": "Bali, Indonesia",
+      "description": "Experience the perfect blend of beautiful beaches, vibrant culture, and spiritual tranquility in the Island of Gods.",
+      "image": "/images/image1.jpg",
+      "price": "$1,299",
+      "duration": "7 Days / 6 Nights",
+      "rating": 4.8,
+      "reviews": 1247,
+      "tag": "Popular"
+    },
+    {
+      "id": 2,
+      "name": "Santorini, Greece",
+      "description": "Marvel at stunning sunsets, white-washed buildings, and crystal-clear waters in this cycladic paradise.",
+      "image": "/images/image2.jpg",
+      "price": "$1,899",
+      "duration": "5 Days / 4 Nights", 
+      "rating": 4.9,
+      "reviews": 893,
+      "tag": "Luxury"
+    },
+    {
+      "id": 3,
+      "name": "Tokyo, Japan",
+      "description": "Immerse yourself in the perfect combination of traditional culture and cutting-edge technology.",
+      "image": "/images/image3.jpg",
+      "price": "$2,199",
+      "duration": "8 Days / 7 Nights",
+      "rating": 4.7,
+      "reviews": 1563,
+      "tag": "Cultural"
+    },
+    {
+      "id": 4,
+      "name": "Swiss Alps, Switzerland",
+      "description": "Discover breathtaking mountain landscapes, pristine lakes, and charming alpine villages.",
+      "image": "/images/image4.jpg",
+      "price": "$2,499",
+      "duration": "6 Days / 5 Nights",
+      "rating": 4.9,
+      "reviews": 734,
+      "tag": "Adventure"
+    },
+    {
+      "id": 5,
+      "name": "Maldives",
+      "description": "Relax in overwater bungalows and experience the world's most spectacular marine life.",
+      "image": "/images/image5.jpg",
+      "price": "$3,199",
+      "duration": "5 Days / 4 Nights",
+      "rating": 4.8,
+      "reviews": 621,
+      "tag": "Luxury"
+    },
+    {
+      "id": 6,
+      "name": "New York City, USA",
+      "description": "Explore the city that never sleeps with its iconic landmarks, Broadway shows, and diverse neighborhoods.",
+      "image": "/images/image6.jpg",
+      "price": "$1,599",
+      "duration": "6 Days / 5 Nights",
+      "rating": 4.6,
+      "reviews": 1987,
+      "tag": "City"
+    }
+  ]
+}

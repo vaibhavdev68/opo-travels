@@ -1,0 +1,44 @@
+{
+  "KERALA_PACKAGES": [
+    {
+      "id": 1,
+      "title": "Kerala in Four Days: A Family Dream Vacation",
+      "duration": "3N/4D",
+      "location": "Kerala",
+      "rating": 4.5,
+      "image": "/images/image1.jpg",
+      "discountedPrice": 12999,
+      "perPersonText": "Per Adult"
+    },
+    {
+      "id": 2,
+      "title": "Honeymoon Special in Kerala's Backwaters",
+      "duration": "3N/4D",
+      "location": "Kerala",
+      "rating": 4,
+      "image": "/images/image2.jpg",
+      "discountedPrice": 14999,
+      "perPersonText": "Per Adult"
+    },
+    {
+      "id": 3,
+      "title": "Kerala Wildlife & Nature Adventure",
+      "duration": "4N/5D",
+      "location": "Kerala",
+      "rating": 4.7,
+      "image": "/images/image3.jpg",
+      "discountedPrice": 19999,
+      "perPersonText": "Per Adult"
+    },
+    {
+      "id": 4,
+      "title": "Kerala Beaches & Backwaters Package",
+      "duration": "3N/4D",
+      "location": "Kerala",
+      "rating": 4.3,
+      "image": "/images/image4.jpg",
+      "discountedPrice": 13999,
+      "perPersonText": "Per Adult"
+    }
+  ]
+}
