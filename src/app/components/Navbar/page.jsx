@@ -108,18 +108,27 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, setShowAuth }) => {
 
           {/* Menu Items */}
           <div className="flex flex-col mt-2 px-2 space-y-2 overflow-y-auto">
-            
-            <Link href="https://www.oporooms.com" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
-              <span>Hotels</span><span className="text-gray-400">›</span>
-            </Link>
-            <Link href="https://www.oporooms.com/Flight" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
-              <span>Flight</span><span className="text-gray-400">›</span>
-            </Link>
             <Link href="/" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Home</span><span className="text-gray-400">›</span>
             </Link>
             <Link href="/tripplanner" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Trip Planner</span><span className="text-gray-400">›</span>
+            </Link>
+            {/* <Link href="https://www.oporooms.com" className="hover:text-purple-200 transition">
+              Hotels
+            </Link>
+
+            <Link href="https://www.oporooms.com/Flight" className="hover:text-purple-200 transition">
+              Flight
+            </Link> */}
+
+
+            <Link href="https://www.oporooms.com" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
+              <span>Hotels</span><span className="text-gray-400">›</span>
+            </Link>
+            
+            <Link href="https://www.oporooms.com/Flight" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
+              <span>Flights</span><span className="text-gray-400">›</span>
             </Link>
             <Link href="/bookingThemes" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Destinations</span><span className="text-gray-400">›</span>
@@ -193,12 +202,12 @@ const AuthPopup = ({ onClose }) => {
     }
 
     // In a real app: Call API to send OTP to recipientValue
-    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 1 Submitted, { 
+    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 1 Submitted`, { 
         fullName, 
         email: email, 
         mobile: mobile,
         otpSentTo: recipientValue
-    }`);
+    });
     setStep(2); // Move to OTP step
   };
 
@@ -206,7 +215,7 @@ const AuthPopup = ({ onClose }) => {
     e.preventDefault();
     // In a real app: Call API to verify OTP
     const submittedOtp = otp;
-    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 2 (OTP) Submitted, { submittedOtp }`);
+    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 2 (OTP) Submitted`, { submittedOtp });
     
     // Placeholder alert for demo
     alert(`OTP submitted: ${submittedOtp}. This would be verified with the backend.`);
@@ -433,9 +442,9 @@ const AuthPopup = ({ onClose }) => {
               type="submit"
               className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
             >
-              {`isLogin 
-                ? ' Login with OTP' 
-                : Get Registration OTP on ${otpRecipient === 'email' ? 'Email' : 'Mobile'}`}
+              {isLogin 
+                ? 'Login with OTP' 
+                : `Get Registration OTP on ${otpRecipient === 'email' ? 'Email' : 'Mobile'}`}
             </button>
           </form>
         )}
@@ -557,15 +566,12 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8 font-medium">
-
-            <Link href="https://www.oporooms.com" className="hover:text-purple-200 transition">
+              <Link href="https://www.oporooms.com/" className="hover:text-purple-200 transition">
               Hotels
             </Link>
-
-            <Link href="https://www.oporooms.com/Flight" className="hover:text-purple-200 transition">
-              Flight
+              <Link href="https://www.oporooms.com/Flight" className="hover:text-purple-200 transition">
+              Flights
             </Link>
-
             <Link href="/tripplanner" className="hover:text-purple-200 transition">
               Trip Planner
             </Link>
