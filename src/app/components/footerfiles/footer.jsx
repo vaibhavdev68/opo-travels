@@ -169,7 +169,7 @@ export default function Footer() {
                   </li>
                   <li className="flex items-center justify-center md:justify-start gap-3 hover:text-purple-300 transition-colors">
                     <Mail size={18} className="text-purple-500 flex-shrink-0" /> 
-                    <span>support@opotravels.com</span>
+                    <span>support@opotravels.in</span>
                   </li>
                   <li className="flex items-center justify-center md:justify-start gap-3 hover:text-purple-300 transition-colors">
                     <MapPin size={18} className="text-purple-500 flex-shrink-0" /> 

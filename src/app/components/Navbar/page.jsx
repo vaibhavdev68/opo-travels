@@ -114,13 +114,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, setShowAuth }) => {
             <Link href="/tripplanner" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Trip Planner</span><span className="text-gray-400">›</span>
             </Link>
-            {/* <Link href="https://www.oporooms.com" className="hover:text-purple-200 transition">
-              Hotels
-            </Link>
-
-            <Link href="https://www.oporooms.com/Flight" className="hover:text-purple-200 transition">
-              Flight
-            </Link> */}
+          
 
 
             <Link href="https://www.oporooms.com" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
@@ -510,21 +504,23 @@ export default function Navbar() {
     {
       title: 'Domestic India',
       items: [
-        { label: 'Kerala', href: '/bookingThemes', icon: Home },
         { label: 'Goa', href: '/bookingThemes', icon: Home },
-        { label: 'Rajasthan', href: '/bookingThemes', icon: Home },
-        { label: 'Himachal', href: '/bookingThemes', icon: Home },
+        { label: 'Himanchal', href: '/bookingThemes', icon: Home },
+        { label: 'Jammu & Kashmir', href: '/bookingThemes', icon: Home },
+        { label: 'Kerala', href: '/bookingThemes', icon: Home },
         { label: 'Uttarakhand', href: '/bookingThemes', icon: Home },
+        { label: 'Rajasthan', href: '/bookingThemes', icon: Home },
       ],
     },
     {
       title: 'International',
       items: [
-        { label: 'Europe', href: '/bookingThemes', icon: Globe },
-        { label: 'Southeast Asia', href: '/bookingThemes', icon: Globe },
-        { label: 'America', href: '/bookingThemes', icon: Globe },
+        { label: 'Bali', href: '/bookingThemes', icon: Globe },
         { label: 'Dubai', href: '/bookingThemes', icon: Globe },
-        { label: 'Australia', href: '/bookingThemes', icon: Globe },
+        { label: 'Maldives', href: '/bookingThemes', icon: Globe },
+        { label: 'Nepal', href: '/bookingThemes', icon: Globe },
+        { label: 'NewYork', href: '/bookingThemes', icon: Globe },
+        { label: 'Switzerland', href: '/bookingThemes', icon: Globe },
       ],
     },
   ];
