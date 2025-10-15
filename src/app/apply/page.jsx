@@ -62,12 +62,13 @@ export default function JobApplicationForm() {
 
   return (
     <motion.form
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="max-w-3xl mx-auto my-10 rounded-3xl overflow-hidden shadow-2xl border border-blue-100 bg-white"
-    >
+  onSubmit={handleSubmit}
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="max-w-3xl mx-auto my-30 rounded-3xl overflow-hidden shadow-2xl border border-blue-100 bg-white"
+>
+
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white py-6 px-8 text-center">
         <h2 className="text-3xl font-bold">Job Application Form</h2>

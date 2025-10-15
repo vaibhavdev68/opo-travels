@@ -68,7 +68,7 @@ const JobGrid = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 m-auto mx-9 my-9">
       {jobCards.map((job) => (
         <JobCard key={job.id} job={job} />
       ))}

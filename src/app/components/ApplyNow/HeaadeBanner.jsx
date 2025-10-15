@@ -2,7 +2,7 @@
 
 const HeaderBanner = () => {
   return (
-    <div className="bg-gradient-to-r mt-12 from-purple-600 to-purple-700 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-2xl">
+    <div className="bg-gradient-to-r mt-25 from-purple-600 to-purple-700 shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 hover:shadow-2xl">
       <div className="flex flex-col md:flex-row items-center justify-between text-white p-8 md:p-12">
         <div className="text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
