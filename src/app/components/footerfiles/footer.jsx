@@ -93,7 +93,7 @@ export default function Footer() {
                 <ul className="space-y-3 md:space-y-4 text-sm md:text-base">
                   <li>
                     <Link
-                      href="/about"
+                      href="/aboutUs"
                       className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-purple-400 transition-all duration-300 transform hover:translate-x-2 group"
                     >
                       <FileText size={18} className="text-purple-500 group-hover:text-purple-400" /> 
@@ -102,7 +102,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/careers"
+                      href="/career"
                       className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-purple-400 transition-all duration-300 transform hover:translate-x-2 group"
                     >
                       <FileText size={18} className="text-purple-500 group-hover:text-purple-400" /> 
