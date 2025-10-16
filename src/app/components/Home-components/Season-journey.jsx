@@ -8,7 +8,6 @@ const SEASONAL_JOURNEYS = [
   { name: 'EUROPE', price: '69,099', link: '#', image: '/images/image1.jpg', size: 'large' },
   { name: 'HIMACHAL PRADESH', price: '9,999', link: '#', image: '/images/image1.jpg', size: 'small' },
   { name: 'KERALA', price: '9,999', link: '#', image:'/images/image1.jpg', size: 'small' },
-  
 ];
 
 // Single Destination Card
@@ -39,7 +38,7 @@ const SeasonalCard = ({ name, price, image, link, size }) => {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 md:p-5 flex flex-col justify-end text-white bg-gradient-to-t from-purple-900/80 via-purple-800/60 to-transparent pt-8">
+      <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4 md:p-5 flex flex-col justify-end text-white bg-gradient-to-t from-[#079790]/80 via-[#079790]/60 to-transparent pt-8">
         <h3
           className={`${headingSize} font-extrabold tracking-wide mb-1 sm:mb-2 uppercase text-left`}
           style={{ textShadow: '0 0 8px rgba(0,0,0,0.8)' }}
@@ -51,7 +50,7 @@ const SeasonalCard = ({ name, price, image, link, size }) => {
           style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.9)' }}
         >
           Start From
-          <span className="ml-1 sm:ml-2 text-yellow-400 font-extrabold">
+          <span className="ml-1 sm:ml-2 text-[#B2DFDB] font-extrabold">
             ₹{price}
           </span>
         </p>
@@ -63,13 +62,13 @@ const SeasonalCard = ({ name, price, image, link, size }) => {
 // Main Section: Seasonal Journeys
 const SeasonalJourneys = () => {
   return (
-    <section className="py-12 sm:py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-purple-100 to-purple-50">
+    <section className="py-12 sm:py-16 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white">
       {/* Header */}
       <div className="mb-8 sm:mb-12 text-left">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-purple-700 mb-2 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-2 leading-tight">
           Seasonal Journeys
         </h2>
-        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-purple-600">
+        <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-black">
           Best places to visit in October for heavenly escapes!
         </p>
       </div>
@@ -94,7 +93,7 @@ const SeasonalJourneys = () => {
 // Main Page Component
 export default function SeasonableJourney() {
   return (
-    <div className="bg-purple-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Custom Hover Styles */}
       <style
         dangerouslySetInnerHTML={{

@@ -12,12 +12,10 @@ export default function KeralaCards() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch packages data
         const packagesResponse = await fetch('/data/homepage/kerala-packages.json');
         const packagesData = await packagesResponse.json();
         setPackages(packagesData.KERALA_PACKAGES || []);
 
-        // Fetch recommendations data
         const recommendationsResponse = await fetch('/data/homepage/kerala-recommendations.json');
         const recommendationsData = await recommendationsResponse.json();
         setRecommendations(recommendationsData.KERALA_RECOMMENDATIONS || []);
@@ -61,16 +59,16 @@ export default function KeralaCards() {
 
       {/* Content */}
       <div className="p-4 flex flex-col justify-between flex-grow">
-        <h2 className="text-lg font-bold mb-1 text-gray-800 hover:text-purple-600 transition-colors">
+        <h2 className="text-lg font-bold mb-1 text-gray-800 hover:text-[#079790] transition-colors">
           {pkg.title}
         </h2>
         <p className="text-sm text-gray-600">
           {pkg.duration} | {pkg.location}
         </p>
-        <p className="mt-2 font-semibold text-gray-700">
+        <p className="mt-2 font-semibold text-[#079790]">
           ⭐ {pkg.rating} Rating
         </p>
-        <p className="mt-2 font-bold text-lg text-purple-600">
+        <p className="mt-2 font-bold text-lg text-[#079790]">
           ₹{pkg.discountedPrice.toLocaleString()}{" "}
           <span className="text-sm font-normal text-gray-600">
             / {pkg.perPersonText}
@@ -88,9 +86,9 @@ export default function KeralaCards() {
               rounded-xl
               font-semibold
               text-white
-              bg-gradient-to-r from-purple-700 to-purple-500
+              bg-gradient-to-r from-[#079790] to-[#06a595]
               shadow-md
-              hover:from-purple-800 hover:to-purple-600
+              hover:from-[#067a77] hover:to-[#048b82]
               transition-all
               duration-300
               transform
@@ -108,7 +106,7 @@ export default function KeralaCards() {
     return (
       <div className="max-w-7xl mx-auto px-4 py-12 space-y-20">
         <div className="text-center py-12">
-          <div className="text-xl">Loading Kerala packages...</div>
+          <div className="text-xl text-[#079790]">Loading Kerala packages...</div>
         </div>
       </div>
     );
@@ -116,19 +114,19 @@ export default function KeralaCards() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-20">
-      {/* Packages Section - NO STYLING CHANGES */}
+      {/* Packages Section */}
       <section>
-        <h2 className="text-3xl sm:text-3xl md:text-3xl lg:text-5xl font-extrabold text-gray-800 mb-6 leading-tight">
-          Deals You Can't Miss
+        <h2 className="text-3xl font-bold mb-6 text-left text-black">
+          Kerala Packages
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {packages.map(renderCard)}
         </div>
-      </section> 
+      </section>
 
-      {/* Recommendations Section - NO STYLING CHANGES */}
+      {/* Recommendations Section */}
       <section>
-        <h2 className="text-3xl sm:text-3xl md:text-3xl lg:text-5xl font-extrabold text-gray-800 mb-6 leading-tight">
+        <h2 className="text-3xl font-bold mb-6 text-left text-black">
           Recommended for You
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

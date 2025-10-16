@@ -22,7 +22,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <div className="w-full md:w-64 bg-gradient-to-b from-purple-700 to-purple-500 rounded-lg shadow-sm p-4 md:p-6 h-[500px]">
+    <div className="w-full md:w-64 bg-gradient-to-b from-teal-700 to-teal-500 rounded-lg shadow-sm p-4 md:p-6 h-[500px]">
       <h3 className="text-sm font-semibold text-white mb-4">MY ACCOUNT</h3>
       <nav className="space-y-2">
         {menuItems.map((item) => {
@@ -36,7 +36,7 @@ export default function Sidebar({ activeTab, setActiveTab }) {
               className={`flex items-center space-x-3 w-full px-4 py-2 rounded-md text-sm transition 
                 ${
                   isActive
-                    ? "bg-white text-purple-700 font-semibold"
+                    ? "bg-white text-teal-700 font-semibold"
                     : "text-white hover:bg-white/10"
                 }`}
             >

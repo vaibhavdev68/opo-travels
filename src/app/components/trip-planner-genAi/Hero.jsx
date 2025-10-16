@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import ImageSlider from "./ImageSlider";
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function TravelItinerary() {
   const [activeCard, setActiveCard] = useState(null);
@@ -45,8 +45,7 @@ export default function TravelItinerary() {
   return (
     <div className="min-h-screen">
       {/* Travel Itinerary Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4 sm:px-6 lg:px-10">
-        {/* Increased max width here */}
+      <div className="bg-gradient-to-br from-[#E6FAF8] to-[#CFF4EE] py-16 px-4 sm:px-6 lg:px-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <header className="text-center mb-12">
@@ -54,7 +53,7 @@ export default function TravelItinerary() {
               Everything you need for planning your trip
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Seamlessly manage your itinerary all in one page with Wonderplan - from reconfiguring the order of your plans, introducing new destinations to your itinerary, or even discarding plans as needed.
+              Seamlessly manage your itinerary all in one page with Wonderplan — from reconfiguring the order of your plans, introducing new destinations to your itinerary, or even discarding plans as needed.
             </p>
           </header>
 
@@ -74,7 +73,7 @@ export default function TravelItinerary() {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-[#079790] text-white px-3 py-1 rounded-full text-sm font-medium">
                         {item.day}
                       </span>
                       <span className="text-gray-600 font-medium">{item.date}</span>
@@ -92,7 +91,7 @@ export default function TravelItinerary() {
               ))}
 
               {/* Add Place Card with ImageSlider */}
-              <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-lg border-2 border-dashed border-gray-300 hover:border-indigo-400 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <div className="bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-lg border-2 border-dashed border-gray-300 hover:border-[#079790] transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <ImageSlider />
               </div>
             </div>
@@ -102,7 +101,7 @@ export default function TravelItinerary() {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-br from-indigo-50 to-purple-50 backdrop-blur-md rounded-2xl p-6 shadow-lg transition-all duration-500 transform ${
+                  className={`bg-gradient-to-br from-[#E8FAF7] to-[#D3F5EF] backdrop-blur-md rounded-2xl p-6 shadow-lg transition-all duration-500 transform ${
                     activeCard === `feature-${index}`
                       ? "scale-105 shadow-2xl backdrop-blur-lg"
                       : "hover:scale-105 hover:shadow-xl"
@@ -121,29 +120,25 @@ export default function TravelItinerary() {
           </div>
         </div>
 
-      
-{/* AI Container / Call-to-Action */}
-<div className="w-full flex justify-center py-10">
-  <div
-    className="w-full max-w-6xl bg-zinc-900 backdrop-blur-md text-white text-center rounded-2xl px-8 py-10 shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-2xl"
-  >
-    <h1 className="text-2xl sm:text-3xl font-semibold leading-relaxed">
-      Skip the manual trip planning and<br />
-      start your effortless journey with<br />
-      <span className="font-bold text-blue-400">
-        Trip Planner AI today, at no cost.
-      </span>
-    </h1>
-  <Link href="/trip-generator">
-    <button className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:bg-gray-200">
-      Try Now
-    </button>
-    </Link>
-    
-  </div>
-</div>
-
-
+        {/* AI Container / Call-to-Action */}
+        <div className="w-full flex justify-center py-10">
+          <div
+            className="w-full max-w-6xl bg-black text-white text-center rounded-2xl px-8 py-10 shadow-lg transition-all duration-500 transform hover:scale-105 hover:shadow-2xl"
+          >
+            <h1 className="text-2xl sm:text-3xl font-semibold leading-relaxed">
+              Skip the manual trip planning and<br />
+              start your effortless journey with<br />
+              <span className="font-bold text-[#079790]">
+                Trip Planner AI today, at no cost.
+              </span>
+            </h1>
+            <Link href="/trip-generator">
+              <button className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-md shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:bg-gray-100">
+                Try Now
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

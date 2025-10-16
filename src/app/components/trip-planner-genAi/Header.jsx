@@ -19,8 +19,8 @@ export default function HeroHeader() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 mix-blend-multiply opacity-50"></div>
+        {/* Gradient overlay (updated to teal theme) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#046C66] via-[#079790] to-[#0FBCA6] mix-blend-multiply opacity-60"></div>
       </div>
 
       {/* Content */}
@@ -30,21 +30,21 @@ export default function HeroHeader() {
           Craft Unforgettable Itineraries with
         </h1>
 
-        {/* Gradient text */}
+        {/* Gradient text updated to teal tone */}
         <div className="mb-8">
-          <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent bg-size-200 animate-gradient">
+          <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-[#079790] via-[#0FBCA6] to-[#4EF2D0] bg-clip-text text-transparent bg-size-200 animate-gradient">
             AI Trip Planner
           </span>
         </div>
 
         {/* Subheading */}
-        <p className="text-xl sm:text-2xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xl sm:text-2xl text-gray-100 mb-8 max-w-2xl mx-auto leading-relaxed">
           Your personal trip planner and travel curator, creating custom itineraries tailored to your interests and budget.
         </p>
 
-        {/* CTA Button with Link */}
+        {/* CTA Button updated for theme consistency */}
         <Link href="/trip-generator">
-          <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <button className="bg-[#079790] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0FBCA6] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
             Get started—it's free
           </button>
         </Link>

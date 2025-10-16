@@ -61,7 +61,7 @@ const MessageBox = ({ type, message, onConfirm, onCancel }) => {
     iconColor = 'text-red-500';
   } else {
     Icon = AlertTriangle;
-    iconColor = 'text-purple-500';
+    iconColor = 'text-teal-500';
   }
   
   const title = type === 'success' ? 'Success' : (isConfirm ? 'Confirmation Required' : 'Information');
@@ -88,7 +88,7 @@ const MessageBox = ({ type, message, onConfirm, onCancel }) => {
               className={`flex-1 py-2 px-4 rounded-lg font-semibold transition ${
                 isConfirm
                   ? 'bg-red-600 text-white hover:bg-red-700'
-                  : 'bg-purple-600 text-white hover:bg-purple-700'
+                  : 'bg-teal-600 text-white hover:bg-teal-700'
               }`}
             >
               {isConfirm ? 'Yes, Log Out' : 'OK'}
@@ -105,39 +105,39 @@ const DeviceCard = ({ device, onLogout }) => {
   const Icon = getDeviceIcon(device.type);
   
   const cardClasses = device.isCurrent
-    ? "bg-gradient-to-br from-purple-100 to-white border-purple-300 shadow-lg ring-2 ring-purple-500/20"
-    : "bg-white border-purple-200 hover:shadow-md hover:border-purple-300 transition-all duration-200";
+    ? "bg-gradient-to-br from-teal-100 to-white border-teal-300 shadow-lg ring-2 ring-teal-500/20"
+    : "bg-white border-teal-200 hover:shadow-md hover:border-teal-300 transition-all duration-200";
 
   const buttonClasses = device.isCurrent
-    ? "bg-purple-600 text-white cursor-default"
+    ? "bg-teal-600 text-white cursor-default"
     : "bg-red-500 text-white hover:bg-red-600 transition";
 
   return (
     <div className={`p-4 border rounded-xl flex items-center justify-between ${cardClasses} sm:p-6`}>
       <div className="flex items-start space-x-4 flex-1 min-w-0">
-        <div className={`p-3 rounded-full ${device.isCurrent ? 'bg-purple-200' : 'bg-purple-100'} flex-shrink-0`}>
-          <Icon className={`w-6 h-6 ${device.isCurrent ? 'text-purple-700' : 'text-purple-600'}`} />
+        <div className={`p-3 rounded-full ${device.isCurrent ? 'bg-teal-200' : 'bg-teal-100'} flex-shrink-0`}>
+          <Icon className={`w-6 h-6 ${device.isCurrent ? 'text-teal-700' : 'text-teal-600'}`} />
         </div>
         
         <div className='flex flex-col min-w-0'>
           <div className="font-semibold text-gray-800 text-lg truncate">
             {device.name}
             {device.isCurrent && (
-              <span className="ml-2 text-xs font-bold bg-purple-600 text-white px-2 py-0.5 rounded-full uppercase tracking-wider flex-shrink-0">
+              <span className="ml-2 text-xs font-bold bg-teal-600 text-white px-2 py-0.5 rounded-full uppercase tracking-wider flex-shrink-0">
                 Current
               </span>
             )}
           </div>
           <div className="text-sm text-gray-600 flex items-center mt-1 flex-wrap gap-x-3 gap-y-1">
             <span className="flex items-center">
-              <MapPin className="w-3 h-3 mr-1 text-purple-500" />
+              <MapPin className="w-3 h-3 mr-1 text-teal-500" />
               {device.location}
             </span>
             <span className="flex items-center">
-              <Clock className="w-3 h-3 mr-1 text-purple-500" />
+              <Clock className="w-3 h-3 mr-1 text-teal-500" />
               {device.lastActive}
             </span>
-            <span className="hidden sm:inline-block text-xs font-mono bg-purple-100 px-2 py-0.5 rounded text-purple-700">
+            <span className="hidden sm:inline-block text-xs font-mono bg-teal-100 px-2 py-0.5 rounded text-teal-700">
               IP: {device.ip}
             </span>
           </div>
@@ -213,41 +213,41 @@ const DevicesLogoutPage = () => {
 
   // Determine button classes for "Logout All Others"
   const logoutAllButtonClasses = otherDevices.length > 0 
-    ? 'bg-white text-purple-600 border border-purple-600 hover:bg-purple-50'
+    ? 'bg-white text-teal-600 border border-teal-600 hover:bg-teal-50'
     : 'bg-gray-200 text-gray-500 cursor-not-allowed';
 
   return (
     <div className="min-h-screen p-6 bg-white">
-      <div className="bg-gradient-to-br from-purple-50 via-purple-100 to-white rounded-2xl shadow-lg p-6 border border-purple-200 space-y-6">
+      <div className="bg-gradient-to-br from-teal-50 via-teal-100 to-white rounded-2xl shadow-lg p-6 border border-teal-200 space-y-6">
         
         {/* Header */}
         <div className="text-center">
-          <h1 className="text-2xl sm:text-3xl font-bold text-purple-900 flex items-center justify-center">
-            <LogOut className="w-6 h-6 sm:w-7 sm:h-7 mr-3 text-purple-600" />
+          <h1 className="text-2xl sm:text-3xl font-bold text-teal-900 flex items-center justify-center">
+            <LogOut className="w-6 h-6 sm:w-7 sm:h-7 mr-3 text-teal-600" />
             Active Sessions & Device Management
           </h1>
-          <p className="mt-2 text-purple-700 text-base">
+          <p className="mt-2 text-teal-700 text-base">
             Review and secure your account by logging out of any unfamiliar devices.
           </p>
         </div>
 
         {/* Quick Stats */}
-        <div className="bg-purple-50 rounded-xl p-6 border border-purple-200 shadow-sm">
-          <h3 className="text-lg font-semibold text-purple-900 mb-4">
+        <div className="bg-teal-50 rounded-xl p-6 border border-teal-200 shadow-sm">
+          <h3 className="text-lg font-semibold text-teal-900 mb-4">
             Session Overview
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">{devices.length}</div>
-              <div className="text-sm text-purple-700">Total Devices</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">{devices.length}</div>
+              <div className="text-sm text-teal-700">Total Devices</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">1</div>
-              <div className="text-sm text-purple-700">Current Session</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">1</div>
+              <div className="text-sm text-teal-700">Current Session</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">{otherDevices.length}</div>
-              <div className="text-sm text-purple-700">Other Sessions</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">{otherDevices.length}</div>
+              <div className="text-sm text-teal-700">Other Sessions</div>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ const DevicesLogoutPage = () => {
         {/* Current Session Indicator */}
         {currentDevice && (
           <div className="mb-8">
-            <h2 className="text-xl font-bold text-purple-900 mb-4">
+            <h2 className="text-xl font-bold text-teal-900 mb-4">
               Your Current Session
             </h2>
             <DeviceCard device={currentDevice} onLogout={() => {}} />
@@ -265,7 +265,7 @@ const DevicesLogoutPage = () => {
         {/* Other Sessions List */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-purple-900">
+            <h2 className="text-xl font-bold text-teal-900">
               Other Active Sessions ({otherDevices.length})
             </h2>
             
@@ -303,7 +303,7 @@ const DevicesLogoutPage = () => {
         </div>
 
         {/* Security Tip */}
-        <footer className="mt-8 pt-6 border-t border-purple-200">
+        <footer className="mt-8 pt-6 border-t border-teal-200">
           <div className="bg-amber-50 rounded-xl p-4 border border-amber-200">
             <p className="text-sm text-amber-800 flex items-start">
               <AlertTriangle className="w-4 h-4 mt-0.5 mr-2 text-amber-500 flex-shrink-0" />

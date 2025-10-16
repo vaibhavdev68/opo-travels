@@ -37,7 +37,7 @@ const Dropdown = ({ title, sections }) => {
 
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button className="flex items-center space-x-1 text-white hover:text-purple-200 transition">
+      <button className="flex items-center space-x-1 text-white hover:text-teal-200 transition">
         <span>{title}</span>
         <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${open ? 'rotate-180' : ''}`} />
       </button>
@@ -50,7 +50,7 @@ const Dropdown = ({ title, sections }) => {
         <div className="flex justify-between px-6 py-4">
           {sections.map((section, idx) => (
             <div key={idx} className="w-1/2 px-2">
-              <p className="text-sm font-semibold text-purple-600 mb-3 border-b border-gray-200 pb-1">
+              <p className="text-sm font-semibold text-teal-600 mb-3 border-b border-gray-200 pb-1">
                 {section.title}
               </p>
               <ul className="space-y-2">
@@ -58,9 +58,9 @@ const Dropdown = ({ title, sections }) => {
                   <li key={i}>
                     <Link
                       href={item.href}
-                      className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition"
+                      className="flex items-center space-x-2 text-gray-700 hover:text-teal-600 transition"
                     >
-                      <item.icon className="w-4 h-4 text-purple-500" />
+                      <item.icon className="w-4 h-4 text-teal-500" />
                       <span>{item.label}</span>
                     </Link>
                   </li>
@@ -108,21 +108,18 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, setShowAuth }) => {
 
           {/* Menu Items */}
           <div className="flex flex-col mt-2 px-2 space-y-2 overflow-y-auto">
+            
+            <Link href="https://www.oporooms.com" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
+              <span>Hotels</span><span className="text-gray-400">›</span>
+            </Link>
+            <Link href="https://www.oporooms.com/Flight" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
+              <span>Flight</span><span className="text-gray-400">›</span>
+            </Link>
             <Link href="/" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Home</span><span className="text-gray-400">›</span>
             </Link>
             <Link href="/tripplanner" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Trip Planner</span><span className="text-gray-400">›</span>
-            </Link>
-          
-
-
-            <Link href="https://www.oporooms.com" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
-              <span>Hotels</span><span className="text-gray-400">›</span>
-            </Link>
-            
-            <Link href="https://www.oporooms.com/Flight" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
-              <span>Flights</span><span className="text-gray-400">›</span>
             </Link>
             <Link href="/bookingThemes" className="flex justify-between items-center bg-white border border-gray-200 rounded-lg p-3 hover:bg-gray-50" onClick={() => setIsMenuOpen(false)}>
               <span>Destinations</span><span className="text-gray-400">›</span>
@@ -143,7 +140,7 @@ const MobileMenu = ({ isMenuOpen, setIsMenuOpen, setShowAuth }) => {
                 setIsMenuOpen(false); 
                 setShowAuth(true);
               }} 
-              className="flex justify-between items-center bg-gradient-to-r from-purple-700 to-purple-500 text-white border border-gray-200 rounded-lg p-3 font-medium hover:from-purple-800 hover:to-purple-600 mt-2"
+              className="flex justify-between items-center bg-gradient-to-r from-teal-700 to-teal-500 text-white border border-gray-200 rounded-lg p-3 font-medium hover:from-teal-800 hover:to-teal-600 mt-2"
             >
               Sign In <span>›</span>
             </button>
@@ -196,12 +193,12 @@ const AuthPopup = ({ onClose }) => {
     }
 
     // In a real app: Call API to send OTP to recipientValue
-    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 1 Submitted`, { 
+    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 1 Submitted, { 
         fullName, 
         email: email, 
         mobile: mobile,
         otpSentTo: recipientValue
-    });
+    }`);
     setStep(2); // Move to OTP step
   };
 
@@ -209,7 +206,7 @@ const AuthPopup = ({ onClose }) => {
     e.preventDefault();
     // In a real app: Call API to verify OTP
     const submittedOtp = otp;
-    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 2 (OTP) Submitted`, { submittedOtp });
+    console.log(`${isLogin ? 'Sign In' : 'Register'} - Step 2 (OTP) Submitted, { submittedOtp }`);
     
     // Placeholder alert for demo
     alert(`OTP submitted: ${submittedOtp}. This would be verified with the backend.`);
@@ -277,7 +274,7 @@ const AuthPopup = ({ onClose }) => {
             value={otp[index] || ''}
             onChange={(e) => handleChange(index, e.target.value)}
             onKeyDown={(e) => handleKeyDown(index, e)}
-            className="w-full h-12 text-center text-lg font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full h-12 text-center text-lg font-bold border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
             required
           />
         ))}
@@ -304,7 +301,7 @@ const AuthPopup = ({ onClose }) => {
           <button
             onClick={() => handleAuthToggle(true)}
             className={`flex-1 py-2 px-4 rounded-md transition-all ${
-              isLogin ? 'bg-white shadow-sm text-purple-600 font-medium' : 'text-gray-600'
+              isLogin ? 'bg-white shadow-sm text-teal-600 font-medium' : 'text-gray-600'
             }`}
           >
             Login
@@ -312,7 +309,7 @@ const AuthPopup = ({ onClose }) => {
           <button
             onClick={() => handleAuthToggle(false)}
             className={`flex-1 py-2 px-4 rounded-md transition-all ${
-              !isLogin ? 'bg-white shadow-sm text-purple-600 font-medium' : 'text-gray-600'
+              !isLogin ? 'bg-white shadow-sm text-teal-600 font-medium' : 'text-gray-600'
             }`}
           >
             Register
@@ -337,7 +334,7 @@ const AuthPopup = ({ onClose }) => {
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="Your full name"
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                       required
                     />
                   </div>
@@ -352,7 +349,7 @@ const AuthPopup = ({ onClose }) => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                       required
                     />
                   </div>
@@ -368,7 +365,7 @@ const AuthPopup = ({ onClose }) => {
                       value={mobile}
                       onChange={(e) => setMobile(e.target.value)}
                       placeholder="91 7827392632"
-                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                      className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                       required
                     />
                   </div>
@@ -384,7 +381,7 @@ const AuthPopup = ({ onClose }) => {
                                 value="email" 
                                 checked={otpRecipient === 'email'} 
                                 onChange={() => setOtpRecipient('email')}
-                                className="w-4 h-4 accent-purple-600"
+                                className="w-4 h-4 accent-teal-600"
                             />
                             <span className="ml-2 text-gray-700">Email</span>
                         </label>
@@ -395,7 +392,7 @@ const AuthPopup = ({ onClose }) => {
                                 value="mobile" 
                                 checked={otpRecipient === 'mobile'} 
                                 onChange={() => setOtpRecipient('mobile')}
-                                className="w-4 h-4 accent-purple-600"
+                                className="w-4 h-4 accent-teal-600"
                             />
                             <span className="ml-2 text-gray-700">Mobile</span>
                         </label>
@@ -424,7 +421,7 @@ const AuthPopup = ({ onClose }) => {
                         }
                     }}
                     placeholder="Email or Mobile"
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                    className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
                     required
                   />
                 </div>
@@ -434,10 +431,10 @@ const AuthPopup = ({ onClose }) => {
 
             <button
               type="submit"
-              className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
             >
               {isLogin 
-                ? 'Login with OTP' 
+                ? ' Login with OTP' 
                 : `Get Registration OTP on ${otpRecipient === 'email' ? 'Email' : 'Mobile'}`}
             </button>
           </form>
@@ -448,14 +445,14 @@ const AuthPopup = ({ onClose }) => {
           <form onSubmit={handleSubmitOTP} className="space-y-4">
             <h2 className="text-xl font-bold text-gray-900 mb-1">Verify Account</h2>
             <p className="text-sm text-gray-600 mb-4">
-              Enter the 6-digit OTP sent to <span className="font-semibold text-purple-600">{displayRecipient}</span>
+              Enter the 6-digit OTP sent to <span className="font-semibold text-teal-600">{displayRecipient}</span>
             </p>
 
             <OTPInput />
 
             <button
               type="submit"
-              className="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+              className="w-full bg-teal-600 text-white py-3 rounded-lg font-semibold hover:bg-teal-700 transition-colors"
             >
               Verify & {isLogin ? 'Sign In' : 'Register'}
             </button>
@@ -464,7 +461,7 @@ const AuthPopup = ({ onClose }) => {
               <button
                 type="button"
                 onClick={handleResendOTP}
-                className="text-purple-600 font-medium hover:text-purple-700 transition-colors"
+                className="text-teal-600 font-medium hover:text-teal-700 transition-colors"
               >
                 Resend OTP
               </button>
@@ -514,7 +511,7 @@ export default function Navbar() {
     },
     {
       title: 'International',
-      items: [
+      items:[
         { label: 'Bali', href: '/bookingThemes', icon: Globe },
         { label: 'Dubai', href: '/bookingThemes', icon: Globe },
         { label: 'Maldives', href: '/bookingThemes', icon: Globe },
@@ -549,7 +546,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="w-full fixed top-0 left-0 bg-gradient-to-r from-purple-700 to-purple-500 text-white shadow-lg z-[1000]">
+      <nav className="w-full fixed top-0 left-0 bg-gradient-to-r from-teal-700 to-teal-500 text-white shadow-lg z-[1000]">
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-20">
           <Link href="/">
             <Image
@@ -562,29 +559,32 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8 font-medium">
-              <Link href="https://www.oporooms.com/" className="hover:text-purple-200 transition">
+
+            <Link href="https://www.oporooms.com" className="hover:text-teal-200 transition">
               Hotels
             </Link>
-              <Link href="https://www.oporooms.com/Flight" className="hover:text-purple-200 transition">
-              Flights
+
+            <Link href="https://www.oporooms.com/Flight" className="hover:text-teal-200 transition">
+              Flight
             </Link>
-            <Link href="/tripplanner" className="hover:text-purple-200 transition">
+
+            <Link href="/tripplanner" className="hover:text-teal-200 transition">
               Trip Planner
             </Link>
 
             <Dropdown title="Destinations" sections={destinations} />
             <Dropdown title="Themes" sections={themes} />
 
-            <Link href="/career" className="hover:text-purple-200 transition">
+            <Link href="/career" className="hover:text-teal-200 transition">
               Careers
             </Link>
-            <Link href="/aboutUs" className="hover:text-purple-200 transition">
+            <Link href="/aboutUs" className="hover:text-teal-200 transition">
               About
             </Link>
 
             <button
               onClick={() => setShowAuth(true)}
-              className="flex items-center space-x-2 bg-white text-purple-700 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition"
+              className="flex items-center space-x-2 bg-white text-teal-700 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition"
             >
               <LogIn className="w-4 h-4" />
               <span>Sign In</span>

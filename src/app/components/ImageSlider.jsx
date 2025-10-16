@@ -26,13 +26,13 @@ const HoverExpand_001 = ({ images, className }) => {
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="relative cursor-pointer overflow-hidden rounded-3xl shadow-4xl"
+              className="relative cursor-pointer overflow-hidden rounded-3xl shadow-2xl"
               initial={{ width: "100px", height: "500px" }}
               animate={{
                 width: activeImage === index ? "650px" : "100px",
                 height: "500px",
               }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               onClick={() => setActiveImage(index)}
               onHoverStart={() => setActiveImage(index)}
             >
@@ -43,7 +43,7 @@ const HoverExpand_001 = ({ images, className }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute h-full w-full bg-gradient-to-t from-black/40 to-transparent"
+                    className="absolute h-full w-full bg-gradient-to-t from-black/50 to-transparent"
                   />
                 )}
               </AnimatePresence>
@@ -57,7 +57,7 @@ const HoverExpand_001 = ({ images, className }) => {
                     exit={{ opacity: 0 }}
                     className="absolute flex h-full w-full flex-col items-end justify-end p-4"
                   >
-                    <p className="text-left text-xs text-white/50">{image.code}</p>
+                    <p className="text-left text-xs text-white/70">{image.code}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -79,7 +79,7 @@ const HoverExpand_001 = ({ images, className }) => {
             key={index}
             className={`transition-all duration-300 rounded-full ${
               activeImage === index
-                ? "bg-blue-600 w-12 h-3"
+                ? "bg-[#079790] w-12 h-3"
                 : "bg-gray-300 w-6 h-2"
             }`}
           />

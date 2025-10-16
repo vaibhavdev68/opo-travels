@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-teal-50">
       {/* Navigation Header */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <nav className="container mx-auto px-6 py-4">
@@ -17,7 +17,7 @@ const HomePage = () => {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
             Transform Your Business With{" "}
-            <span className="text-blue-600">Innovation</span>
+            <span className="text-teal-600">Innovation</span>
           </h1>
           <p className="text-xl text-gray-600 mb-10 leading-relaxed">
             Discover amazing features and services that will transform your
@@ -26,7 +26,7 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/contact"
-              className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
+              className="bg-teal-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-2"
             >
               <span>Get Started Free</span>
               <span className="text-lg">→</span>
@@ -50,7 +50,7 @@ const HomePage = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-teal-600 mb-2">
                 10K+
               </div>
               <div className="text-gray-600">Happy Customers</div>
@@ -62,7 +62,7 @@ const HomePage = () => {
               <div className="text-gray-600">Satisfaction Rate</div>
             </div>
             <div>
-              <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-teal-500 mb-2">
                 24/7
               </div>
               <div className="text-gray-600">Customer Support</div>
@@ -92,7 +92,7 @@ const HomePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {/* Feature 1 */}
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2">
-            <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+            <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
               <span className="text-3xl">🚀</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
@@ -120,7 +120,7 @@ const HomePage = () => {
 
           {/* Feature 3 */}
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2">
-            <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+            <div className="w-16 h-16 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
               <span className="text-3xl">💬</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
@@ -155,7 +155,7 @@ const HomePage = () => {
                 team is incredible!"
               </p>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
                   JS
                 </div>
                 <div>
@@ -195,7 +195,7 @@ const HomePage = () => {
                 above and beyond!"
               </p>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
                   MD
                 </div>
                 <div>
@@ -209,32 +209,32 @@ const HomePage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+      <section className="bg-gradient-to-r from-teal-600 to-teal-700 text-white py-20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-teal-100 mb-10 max-w-2xl mx-auto leading-relaxed">
             Join thousands of satisfied customers and experience the difference
             today. Start your free trial with no commitment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
               href="/contact"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 text-lg"
+              className="bg-white text-teal-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center gap-3 text-lg"
             >
               <span>Start Free Trial</span>
               <span className="text-xl">🎯</span>
             </Link>
             <Link
               href="/contact"
-              className="border border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center gap-3 text-lg"
+              className="border border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-teal-600 transition-all duration-300 flex items-center gap-3 text-lg"
             >
               <span>Contact Sales</span>
               <span className="text-xl">💼</span>
             </Link>
           </div>
-          <div className="mt-6 text-blue-200 text-sm">
+          <div className="mt-6 text-teal-200 text-sm">
             ✨ No credit card required • 14-day free trial • Cancel anytime
           </div>
         </div>

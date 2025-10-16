@@ -1,10 +1,10 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 
-// Single Card Component - NO STYLING CHANGES
+// Single Card Component
 const HandpickedCard = ({ name, price, image }) => (
   <div className="w-full group perspective flex-shrink-0 top-0">
-    <div className="bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.05] transform group-hover:rotate-x-0 rotate-x-1 border border-gray-100">
+    <div className="bg-white rounded-3xl shadow-md shadow-[#079790]/30 border border-[#079790]/40 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.05] transform group-hover:rotate-x-0 rotate-x-1">
       <div className="w-full h-44 sm:h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-xl">
         <img
           src={image}
@@ -13,14 +13,14 @@ const HandpickedCard = ({ name, price, image }) => (
         />
       </div>
       <div className="p-4 sm:p-5 text-left text-gray-800">
-        <h3 className="text-lg sm:text-xl font-bold mb-1 group-hover:text-purple-600 transition-colors">
+        <h3 className="text-lg sm:text-xl font-bold mb-1 group-hover:text-[#079790] transition-colors">
           {name}
         </h3>
-        <p className="text-purple-600 font-medium text-sm sm:text-base mb-3">
+        <p className="text-[#079790] font-medium text-sm sm:text-base mb-3">
           ₹ {price}
         </p>
-        <button className="mt-2 w-full bg-gradient-to-r from-purple-700 to-purple-500 text-white py-1.5 px-3 text-sm sm:text-base rounded-lg font-semibold shadow-md hover:from-purple-800 hover:to-purple-600 transition-all duration-300 transform hover:scale-105">
-          View
+        <button className="mt-2 w-full bg-gradient-to-r from-[#079790] to-[#06a595] text-white py-1.5 px-3 text-sm sm:text-base rounded-lg font-semibold shadow-md shadow-[#079790]/50 hover:from-[#067a77] hover:to-[#048b82] transition-all duration-300 transform hover:scale-105">
+          Book Now
         </button>
       </div>
     </div>
@@ -58,14 +58,14 @@ const HandpickedPackages = () => {
 
   const getButtonClasses = (tabName) =>
     tabName === activeTab
-      ? "px-6 sm:px-8 py-2 text-white bg-gradient-to-r from-purple-700 to-purple-500 border-2 border-purple-700 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-purple-500/50 transform scale-105"
-      : "px-6 sm:px-8 py-2 text-gray-600 bg-white border-2 border-gray-300 rounded-full font-semibold hover:border-purple-400 hover:text-purple-700 transition-all duration-300 shadow-md";
+      ? "px-6 sm:px-8 py-2 text-white bg-gradient-to-r from-[#079790] to-[#06a595] border-2 border-[#079790] rounded-full font-semibold transition-all duration-300 shadow-lg shadow-[#079790]/50 transform scale-105"
+      : "px-6 sm:px-8 py-2 text-gray-600 bg-white border-2 border-gray-300 rounded-full font-semibold hover:border-[#079790] hover:text-[#079790] transition-all duration-300 shadow-md";
 
   if (loading) {
     return (
       <section className="my-0 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div className="text-center py-12">
-          <div className="text-xl">Loading packages...</div>
+          <div className="text-xl text-[#079790]">Loading packages...</div>
         </div>
       </section>
     );
@@ -73,23 +73,23 @@ const HandpickedPackages = () => {
 
   return (
     <section className="my-0 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      {/* Heading with more left margin and padding */}
+      {/* Heading */}
       <div className="text-left mb-6 sm:mb-8 md:mb-10 pl-4 sm:pl-6 md:pl-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-2 leading-snug sm:leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-black mb-2 leading-snug sm:leading-tight">
           Handpicked Holiday Packages
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600">
+        <p className="text-base sm:text-lg md:text-xl text-black/80">
           Indulge in unforgettable adventures with our specially curated tour plans.
         </p>
       </div>
 
-      {/* Tabs with same left margin and padding as heading */}
+      {/* Tabs */}
       <div className="flex flex-wrap mb-8 sm:mb-10 gap-3 sm:gap-4 justify-start pl-4 sm:pl-6 md:pl-8">
         <button className={getButtonClasses('Domestic')} onClick={() => setActiveTab('Domestic')}>Domestic</button>
         <button className={getButtonClasses('International')} onClick={() => setActiveTab('International')}>International</button>
       </div>
 
-      {/* Updated Card Container */}
+      {/* Card Container */}
       <div className="relative">
         <div
           className="
@@ -142,8 +142,6 @@ export default function HolidayPage() {
       <main className="w-full">
         <HandpickedPackages />
       </main>
-
-
     </div>
   );
 }

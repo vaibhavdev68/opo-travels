@@ -129,13 +129,13 @@ export default function KeralaCards() {
 
       {/* Content */}
       <div className="p-4 flex flex-col justify-between text-left text-gray-800 flex-grow">
-        <h2 className="text-lg font-bold mb-1 text-teal-700 drop-shadow-sm">
+        <h2 className="text-lg font-bold mb-1 text-[#079790] drop-shadow-sm">
           {pkg.title}
         </h2>
         <p className="text-sm text-gray-600">
           {pkg.duration} | {pkg.location}
         </p>
-        <p className="text-teal-600 mt-2 font-semibold">
+        <p className="text-[#079790] mt-2 font-semibold">
           ⭐ {pkg.rating} Rating
         </p>
         <p className="text-gray-800 mt-2 font-bold text-lg">
@@ -156,9 +156,9 @@ export default function KeralaCards() {
               rounded-xl
               font-semibold
               text-white
-              bg-gradient-to-r from-teal-500 to-teal-700
+              bg-gradient-to-r from-[#079790] to-[#079790]
               shadow-lg
-              hover:from-teal-700 hover:to-teal-500
+              hover:from-[#079790] hover:to-[#079790]
               transition-all
               duration-300
               backdrop-blur-sm
@@ -173,20 +173,40 @@ export default function KeralaCards() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-20">
-      {/* Packages Section */}
+      {/* Solo Packages Section */}
       <section>
-        <h2 className="text-3xl font-bold text-teal-700 mb-6 text-left">
-          Kerala Packages
+        <h2 className="text-5xl font-bold text-black-700 mb-6 text-left">
+          Solo Travel
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {packages.map(renderCard)}
         </div>
       </section>
 
-      {/* Recommendations Section */}
+      {/* Couple Packages Section */}
       <section>
-        <h2 className="text-3xl font-bold text-teal-700 mb-6 text-left">
-          Recommended for You
+        <h2 className="text-5xl font-bold text-black-700 mb-6 text-left">
+          Couple Gateway
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {recommendations.map(renderCard)}
+        </div>
+      </section>
+
+      {/* Friends Packages Section */}
+      <section>
+        <h2 className="text-5xl font-bold text-black-700 mb-6 text-left">
+          Friends Trip
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {recommendations.map(renderCard)}
+        </div>
+      </section>
+
+      {/* Family Packages Section */}
+      <section>
+        <h2 className="text-5xl font-bold text-black-700 mb-6 text-left">
+          Family Vacation
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {recommendations.map(renderCard)}

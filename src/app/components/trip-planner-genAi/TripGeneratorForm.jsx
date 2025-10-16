@@ -21,6 +21,12 @@ export default function TripGeneratorForm() {
   const dropdownRef = useRef(null);
   const dropdownButtonRef = useRef(null);
 
+  // ONLY remove asterisks for clean formatting
+  const cleanGeneratedText = (text) => {
+    if (!text) return '';
+    return text.replace(/\*\*/g, '').replace(/\*/g, '');
+  };
+
   // Detect mobile
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -77,9 +83,9 @@ export default function TripGeneratorForm() {
     setIsDropdownOpen(false);
   };
 
-  // Simple and reliable copy function
+  // Copy function
   const copyTextToClipboard = () => {
-    const textToCopy = formatPlanText(generatedPlan);
+    const textToCopy = cleanGeneratedText(generatedPlan);
     
     if (!textToCopy.trim()) {
       setCopySuccess('No text to copy');
@@ -87,57 +93,6 @@ export default function TripGeneratorForm() {
       return;
     }
 
-const formatPlanText = (text) => {
-  if (!text) return '';
-
-  let formattedText = text
-    // Remove markdown artifacts and asterisks
-    .replace(/\*\*/g, '')
-    .replace(/\*/g, '•')
-
-    // Fix corrupted words caused by “OPO” insertion
-    .replace(/\bOPO\b/g, '')
-    .replace(/ROPOlway/g, 'Railway')
-    .replace(/rOPOlway/g, 'railway')
-    .replace(/trOPOn/g, 'train')
-    .replace(/TrOPOn/g, 'Train')
-    .replace(/bargOPOn/g, 'bargain')
-    .replace(/entertOPOnment/g, 'entertainment')
-    .replace(/mOPOntOPOning/g, 'maintaining')
-    .replace(/MOPOntOPOning/g, 'maintaining')
-    .replace(/DubOPO/g, 'Dubai')
-    .replace(/fountOPOn/g, 'fountain')
-    .replace(/ThOPO/g, 'Thai')
-    .replace(/BOPOngan/g, 'Baingan')
-    .replace(/MOPOson/g, 'Maison')
-    .replace(/VOPOshno/g, 'Vaishno')
-    .replace(/OPOrport/g, 'airport')
-    .replace(/dOPOly/g, 'daily')
-    .replace(/avOPOlable/g, 'available')
-    .replace(/mountOPOnous/g, 'mountainous')
-    .replace(/bOPOngan/g, 'baingan')
-    .replace(/MalOPOyo/g, 'Malayo')
-    .replace(/AlOPOkum/g, 'Alaikum')
-
-    // Remove stray "Trip Planner" words from API outputs
-    .replace(/OPO Trip Planner/g, '')
-    .replace(/Trip Planner/g, '')
-
-    // Clean extra spaces and lines
-    .replace(/\n\s*\n\s*\n/g, '\n\n')
-    .replace(/ {2,}/g, ' ')
-    .trim();
-
-  // Add consistent heading at the top
-  const header = `OPO TRAVEL PLAN\n${formData.origin} → ${formData.destination}\nDuration: ${formData.days} days | Budget: ${formData.budget} | Travelers: ${formData.travelType}\n\n`;
-
-  return header + formattedText;
-};
-
-
-
-    
-    // Create a temporary textarea
     const textArea = document.createElement('textarea');
     textArea.value = textToCopy;
     textArea.style.position = 'fixed';
@@ -146,17 +101,14 @@ const formatPlanText = (text) => {
     document.body.appendChild(textArea);
     
     try {
-      // Select and copy
       textArea.focus();
       textArea.select();
       
-      // Try execCommand first (most compatible)
       const successful = document.execCommand('copy');
       
       if (successful) {
         setCopySuccess('✓ Text copied successfully!');
       } else {
-        // Fallback: try modern clipboard API
         if (navigator.clipboard) {
           navigator.clipboard.writeText(textToCopy).then(() => {
             setCopySuccess('✓ Text copied successfully!');
@@ -170,29 +122,24 @@ const formatPlanText = (text) => {
     } catch (err) {
       setCopySuccess('❌ Please copy manually');
     } finally {
-      // Clean up
       document.body.removeChild(textArea);
     }
     
-    // Clear message after 3 seconds
     setTimeout(() => setCopySuccess(''), 3000);
   };
 
-  // Download PDF function - Fixed to only include travel plan
+  // Download PDF function
   const downloadPDF = async () => {
     const downloadBtn = document.getElementById('download-btn');
     
     if (!downloadBtn) return;
 
-    // Store original content
     const originalBtnText = downloadBtn.innerHTML;
     
     try {
-      // Show loading state on button
       downloadBtn.innerHTML = '🔄 Preparing PDF...';
       downloadBtn.disabled = true;
 
-      // Create a clean version of the travel plan for PDF
       const pdfContent = `
         <!DOCTYPE html>
         <html>
@@ -210,12 +157,12 @@ const formatPlanText = (text) => {
             }
             .header {
               text-align: center;
-              border-bottom: 2px solid #4F46E5;
+              border-bottom: 2px solid #079790;
               padding-bottom: 20px;
               margin-bottom: 30px;
             }
             .header h1 {
-              color: #4F46E5;
+              color: #079790;
               margin: 0;
               font-size: 28px;
             }
@@ -229,16 +176,7 @@ const formatPlanText = (text) => {
               padding: 15px;
               border-radius: 8px;
               margin-bottom: 20px;
-              border-left: 4px solid #4F46E5;
-            }
-            .section {
-              margin-bottom: 25px;
-            }
-            .section h2 {
-              color: #4F46E5;
-              border-bottom: 1px solid #E5E7EB;
-              padding-bottom: 5px;
-              margin-top: 30px;
+              border-left: 4px solid #079790;
             }
             .footer {
               text-align: center;
@@ -247,12 +185,6 @@ const formatPlanText = (text) => {
               border-top: 1px solid #E5E7EB;
               color: #6B7280;
               font-size: 14px;
-            }
-            ul {
-              padding-left: 20px;
-            }
-            li {
-              margin-bottom: 8px;
             }
             pre {
               white-space: pre-wrap;
@@ -276,7 +208,7 @@ const formatPlanText = (text) => {
           </div>
 
           <div class="content">
-            <pre>${formatPlanText(generatedPlan)}</pre>
+            <pre>${cleanGeneratedText(generatedPlan)}</pre>
           </div>
 
           <div class="footer">
@@ -286,7 +218,6 @@ const formatPlanText = (text) => {
         </html>
       `;
 
-      // Try to use html2pdf first
       try {
         const html2pdf = (await import('html2pdf.js')).default;
         
@@ -306,7 +237,6 @@ const formatPlanText = (text) => {
         
       } catch (pdfError) {
         console.warn('html2pdf failed, using print fallback:', pdfError);
-        // Fallback: open in new window for printing
         const printWindow = window.open('', '_blank');
         printWindow.document.write(pdfContent);
         printWindow.document.close();
@@ -315,7 +245,6 @@ const formatPlanText = (text) => {
       
     } catch (error) {
       console.error('PDF generation error:', error);
-      // Final fallback - simple print
       const printWindow = window.open('', '_blank');
       printWindow.document.write(`
         <html>
@@ -323,20 +252,19 @@ const formatPlanText = (text) => {
           <body>
             <h1>OPO Travel Plan</h1>
             <h2>${formData.origin} to ${formData.destination}</h2>
-            <pre>${formatPlanText(generatedPlan)}</pre>
+            <pre>${cleanGeneratedText(generatedPlan)}</pre>
           </body>
         </html>
       `);
       printWindow.document.close();
       printWindow.print();
     } finally {
-      // Restore original button state
       downloadBtn.innerHTML = '📥 Download PDF';
       downloadBtn.disabled = false;
     }
   };
 
-  // Simple print function
+  // Print function
   const printPlan = () => {
     const printContent = `
       <!DOCTYPE html>
@@ -355,7 +283,7 @@ const formatPlanText = (text) => {
           .header { 
             text-align: center; 
             margin-bottom: 30px;
-            border-bottom: 2px solid #4F46E5;
+            border-bottom: 2px solid #079790;
             padding-bottom: 20px;
           }
           .trip-info { 
@@ -384,7 +312,7 @@ const formatPlanText = (text) => {
           <strong>Travel Type:</strong> ${formData.travelType}
         </div>
         <div class="content">
-          <pre>${formatPlanText(generatedPlan)}</pre>
+          <pre>${cleanGeneratedText(generatedPlan)}</pre>
         </div>
       </body>
       </html>
@@ -420,59 +348,6 @@ const formatPlanText = (text) => {
     return () => clearInterval(timer);
   }, []);
 
-  // Enhanced function to clean and format the plan text
-  const formatPlanText = (text) => {
-    if (!text) return '';
-    
-    let formattedText = text
-      // Remove asterisks and clean up formatting
-      .replace(/\*\*/g, '')
-      .replace(/\*/g, '•')
-      // Fix Dubai-specific replacements
-      .replace(/DubOPO/g, 'Dubai')
-      .replace(/fountOPOn/g, 'fountain')
-      .replace(/entertOPOnment/g, 'entertainment')
-      .replace(/bargOPOn/g, 'bargain')
-      .replace(/ThOPO/g, 'Thai')
-      .replace(/LuqOPOmat/g, 'Luqaimat')
-      .replace(/hOPO/g, 'hai')
-      .replace(/MOPOson/g, 'Maison')
-      .replace(/sOPOl/g, 'sail')
-      .replace(/MOPOntOPOning/g, 'maintaining')
-      .replace(/mOPOntOPOning/g, 'maintaining')
-      // Fix any broken words from replacements
-      .replace(/OPO Trip Planner/g, 'OPO')
-      .replace(/mountOPO Trip Plannerns/g, 'mountains')
-      .replace(/avOPO Trip Plannerlable/g, 'available')
-      .replace(/mOPO Trip Plannern/g, 'main')
-      .replace(/chOPO Trip Plannern/g, 'chain')
-      .replace(/trOPO Trip Plannern/g, 'train')
-      .replace(/bargOPO Trip Plannern/g, 'bargain')
-      .replace(/entertOPO Trip Plannerned/g, 'entertained')
-      .replace(/hOPO Trip Planner\?/g, '?')
-      .replace(/remOPO Trip Plannerning/g, 'remaining')
-      // Fix specific words from previous examples
-      .replace(/detOPOled/g, 'detailed')
-      .replace(/OPOrport/g, 'airport')
-      .replace(/OPOr/g, 'air')
-      .replace(/dOPOly/g, 'daily')
-      .replace(/avOPOlable/g, 'available')
-      .replace(/bargOPOning/g, 'bargaining')
-      .replace(/mountOPOnous/g, 'mountainous')
-      .replace(/AlOPOkum/g, 'Alaikum')
-      .replace(/BOPOsaran/g, 'Baisaran')
-      .replace(/VOPOshno/g, 'Vaishno')
-      // Clean up extra spaces and line breaks
-      .replace(/\n\s*\n\s*\n/g, '\n\n')
-      .replace(/ {2,}/g, ' ')
-      .trim();
-
-    // Add header information
-    const header = `OPO TRAVEL PLAN\n${formData.origin} → ${formData.destination}\nDuration: ${formData.days} days | Budget: ${formData.budget} | Travelers: ${formData.travelType}\n\n`;
-    
-    return header + formattedText;
-  };
-
   const budgetOptions = [
     { value: 'low', label: 'Budget', range: '₹5K–15K', icon: '💰' },
     { value: 'medium', label: 'Standard', range: '₹15K–45K', icon: '💸' },
@@ -483,7 +358,7 @@ const formatPlanText = (text) => {
     { value: 'solo', label: 'Solo', icon: '🧍', color: 'from-blue-400 to-cyan-400' },
     { value: 'couple', label: 'Couple', icon: '👩‍❤️‍👨', color: 'from-pink-400 to-rose-400' },
     { value: 'family', label: 'Family', icon: '👨‍👩‍👧‍👦', color: 'from-green-400 to-emerald-400' },
-    { value: 'friends', label: 'Friends', icon: '👥', color: 'from-purple-400 to-indigo-400' }
+    { value: 'friends', label: 'Friends', icon: '👥', color: 'from-teal-400 to-indigo-400' }
   ];
 
   const dayOptions = Array.from({ length: 30 }, (_, i) => i + 1);
@@ -496,12 +371,12 @@ const formatPlanText = (text) => {
   ];
 
   return (
-    <div className="min-h-[600px] bg-gradient-to-br from-blue-50 via-purple-50 to-green-50 py-8 px-4 flex items-center justify-center mt-20 relative overflow-visible">
+    <div className="min-h-[600px] bg-gradient-to-br from-blue-50 via-teal-50 to-green-50 py-8 px-4 flex items-center justify-center mt-20 relative overflow-visible">
       {/* Floating Backgrounds */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-10 -left-10 w-20 h-20 bg-blue-200 rounded-full blur-xl opacity-30 animate-pulse"></div>
         <div className="absolute top-1/4 -right-10 w-16 h-16 bg-green-200 rounded-full blur-xl opacity-30 animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-purple-200 rounded-full blur-xl opacity-30 animate-pulse delay-500"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-teal-200 rounded-full blur-xl opacity-30 animate-pulse delay-500"></div>
         <div className="absolute bottom-10 right-1/4 w-12 h-12 bg-cyan-200 rounded-full blur-xl opacity-30 animate-pulse delay-1500"></div>
       </div>
 
@@ -510,7 +385,7 @@ const formatPlanText = (text) => {
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <div className="relative">
-              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
+              <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-teal-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold shadow-lg">
                 ✈️
               </div>
               <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-md">
@@ -519,7 +394,7 @@ const formatPlanText = (text) => {
             </div>
           </div>
 
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-teal-600 to-green-600 bg-clip-text text-transparent mb-2">
             OPO Trip Planner
           </h1>
           <p className="text-gray-600 text-base mb-6">Let OPO craft your perfect journey with smart travel planning</p>
@@ -541,7 +416,7 @@ const formatPlanText = (text) => {
             {['Destination', 'Preferences', 'Generate'].map((step, i) => (
               <div key={step} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold transition-all duration-500 ${
-                  currentStep === i ? 'bg-gradient-to-r from-blue-500 to-purple-600 scale-110 shadow-lg' : 'bg-gray-300'
+                  currentStep === i ? 'bg-gradient-to-r from-blue-500 to-teal-600 scale-110 shadow-lg' : 'bg-gray-300'
                 }`}>{i + 1}</div>
                 <span className={`ml-2 text-sm transition-all ${currentStep === i ? 'text-blue-600 scale-105' : 'text-gray-500'}`}>
                   {step}
@@ -557,7 +432,7 @@ const formatPlanText = (text) => {
           {/* Origin + Destination */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">📍 Origin City</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2 items-center">📍 Origin City</label>
               <input
                 type="text"
                 name="origin"
@@ -570,7 +445,7 @@ const formatPlanText = (text) => {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">🎯 Dream Destination</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2 items-center">🎯 Dream Destination</label>
               <input
                 type="text"
                 name="destination"
@@ -586,7 +461,7 @@ const formatPlanText = (text) => {
           {/* Travel Date + Duration */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
             <div className="relative z-50">
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">📅 Travel Date</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2 items-center">📅 Travel Date</label>
               <input
                 type="date"
                 name="travelDate"
@@ -600,7 +475,7 @@ const formatPlanText = (text) => {
             </div>
 
             <div className="relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">⏱️ Trip Duration</label>
+              <label className="block text-sm font-semibold text-gray-700 mb-2 items-center">⏱️ Trip Duration</label>
               <button
                 ref={dropdownButtonRef}
                 type="button"
@@ -677,7 +552,7 @@ const formatPlanText = (text) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 text-white py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-2xl relative overflow-hidden group disabled:opacity-50"
+              className="w-full bg-gradient-to-r from-blue-600 via-teal-600 to-green-600 text-white py-4 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-2xl relative overflow-hidden group disabled:opacity-50"
             >
               <span className="relative z-10 flex items-center justify-center">
                 {isLoading ? (
@@ -691,7 +566,7 @@ const formatPlanText = (text) => {
                   </>
                 )}
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
 
             {isLoading && (
@@ -732,7 +607,7 @@ const formatPlanText = (text) => {
             
             <div className="prose max-w-none">
               <div className="whitespace-pre-wrap text-gray-700 leading-relaxed bg-white p-6 rounded-lg border max-h-96 overflow-y-auto">
-                {formatPlanText(generatedPlan)}
+                {cleanGeneratedText(generatedPlan)}
               </div>
             </div>
             
@@ -756,7 +631,7 @@ const formatPlanText = (text) => {
                   </button>
                   <button
                     onClick={printPlan}
-                    className="flex items-center space-x-2 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors shadow-md"
+                    className="flex items-center space-x-2 px-4 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors shadow-md"
                   >
                     <span>🖨️</span>
                     <span>Print</span>

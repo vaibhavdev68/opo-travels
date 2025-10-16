@@ -167,13 +167,13 @@ const DummyItinerary = () => {
 
   const getActivityIcon = (activity) => {
     if (activity.toLowerCase().includes('airport') || activity.toLowerCase().includes('flight')) 
-      return <Plane className="w-4 h-4 text-purple-500" />;
+      return <Plane className="w-4 h-4 text-teal-500" />;
     if (activity.toLowerCase().includes('hotel') || activity.toLowerCase().includes('resort')) 
       return <Home className="w-4 h-4 text-green-500" />;
     if (activity.toLowerCase().includes('food') || activity.toLowerCase().includes('dinner') || activity.toLowerCase().includes('lunch')) 
       return <Utensils className="w-4 h-4 text-orange-500" />;
     if (activity.toLowerCase().includes('tour') || activity.toLowerCase().includes('visit') || activity.toLowerCase().includes('explore')) 
-      return <MapPin className="w-4 h-4 text-purple-500" />;
+      return <MapPin className="w-4 h-4 text-teal-500" />;
     if (activity.toLowerCase().includes('beach') || activity.toLowerCase().includes('sunset')) 
       return <Sun className="w-4 h-4 text-yellow-500" />;
     return <Star className="w-4 h-4 text-gray-500" />;
@@ -182,13 +182,13 @@ const DummyItinerary = () => {
   const isCompleted = isItineraryCompleted();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 py-6 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50 py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header Card */}
-        <div className={`bg-white rounded-2xl shadow-lg border border-purple-100 p-6 mb-6 relative ${isCompleted ? 'opacity-75' : ''}`}>
+        <div className={`bg-white rounded-2xl shadow-lg border border-teal-100 p-6 mb-6 relative ${isCompleted ? 'opacity-75' : ''}`}>
           {isCompleted && (
             <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <div className="bg-purple-600 text-white px-6 py-3 rounded-lg transform -rotate-12 shadow-xl flex items-center gap-2">
+              <div className="bg-teal-600 text-white px-6 py-3 rounded-lg transform -rotate-12 shadow-xl flex items-center gap-2">
                 <CheckCircle2 className="w-6 h-6" />
                 <span className="text-lg font-bold">COMPLETED</span>
               </div>
@@ -198,17 +198,17 @@ const DummyItinerary = () => {
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-purple-100 rounded-lg">
-                    <MapPin className="w-6 h-6 text-purple-600" />
+                  <div className="p-2 bg-teal-100 rounded-lg">
+                    <MapPin className="w-6 h-6 text-teal-600" />
                   </div>
                   <div>
                     <h1 className="text-2xl font-bold text-gray-900">Your Travel Itinerary</h1>
-                    <p className="text-lg text-purple-600 font-semibold mt-1">{itinerary.packageName}</p>
+                    <p className="text-lg text-teal-600 font-semibold mt-1">{itinerary.packageName}</p>
                   </div>
                 </div>
                 
                 <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+                  <span className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm">
                     <ClipboardList className="w-4 h-4" />
                     Booking: {itinerary.bookingReference}
                   </span>
@@ -238,14 +238,14 @@ const DummyItinerary = () => {
               <div className="flex gap-2 mt-4 lg:mt-0 relative z-20">
                 <button 
                   onClick={downloadItinerary}
-                  className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors text-sm"
+                  className="flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg transition-colors text-sm"
                 >
                   <Download className="w-4 h-4" />
                   Download PDF
                 </button>
                 <button 
                   onClick={shareItinerary}
-                  className="flex items-center gap-2 border border-purple-200 text-purple-700 hover:bg-purple-50 px-4 py-2 rounded-lg transition-colors text-sm"
+                  className="flex items-center gap-2 border border-teal-200 text-teal-700 hover:bg-teal-50 px-4 py-2 rounded-lg transition-colors text-sm"
                 >
                   <Share2 className="w-4 h-4" />
                   Share
@@ -256,28 +256,28 @@ const DummyItinerary = () => {
         </div>
 
         {/* Traveler Information */}
-        <div className={`bg-white rounded-2xl shadow-lg border border-purple-100 p-6 mb-6 ${isCompleted ? 'opacity-60' : ''}`}>
+        <div className={`bg-white rounded-2xl shadow-lg border border-teal-100 p-6 mb-6 ${isCompleted ? 'opacity-60' : ''}`}>
           <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <User className="w-5 h-5 text-purple-600" />
+            <User className="w-5 h-5 text-teal-600" />
             Traveler Information
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
-              <User className="w-5 h-5 text-purple-600" />
+            <div className="flex items-center gap-3 p-3 bg-teal-50 rounded-lg">
+              <User className="w-5 h-5 text-teal-600" />
               <div>
                 <p className="text-sm text-gray-600">Name</p>
                 <p className="font-medium text-gray-900">{itinerary.traveler.name}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
-              <Mail className="w-5 h-5 text-purple-600" />
+            <div className="flex items-center gap-3 p-3 bg-teal-50 rounded-lg">
+              <Mail className="w-5 h-5 text-teal-600" />
               <div>
                 <p className="text-sm text-gray-600">Email</p>
                 <p className="font-medium text-gray-900">{itinerary.traveler.email}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
-              <Phone className="w-5 h-5 text-purple-600" />
+            <div className="flex items-center gap-3 p-3 bg-teal-50 rounded-lg">
+              <Phone className="w-5 h-5 text-teal-600" />
               <div>
                 <p className="text-sm text-gray-600">Phone</p>
                 <p className="font-medium text-gray-900">{itinerary.traveler.phone}</p>
@@ -287,9 +287,9 @@ const DummyItinerary = () => {
         </div>
 
         {/* Daily Itinerary */}
-        <div className="bg-white rounded-2xl shadow-lg border border-purple-100 p-6 mb-6">
+        <div className="bg-white rounded-2xl shadow-lg border border-teal-100 p-6 mb-6">
           <h2 className="text-xl font-semibold text-gray-900 mb-6 flex items-center gap-2">
-            <Route className="w-5 h-5 text-purple-600" />
+            <Route className="w-5 h-5 text-teal-600" />
             Daily Schedule
           </h2>
           
@@ -299,10 +299,10 @@ const DummyItinerary = () => {
               return (
                 <div 
                   key={day.day}
-                  className={`border border-purple-200 rounded-lg transition-all duration-200 relative ${
+                  className={`border border-teal-200 rounded-lg transition-all duration-200 relative ${
                     expandedDay === day.day 
-                      ? 'border-purple-400 shadow-lg bg-purple-50' 
-                      : 'hover:border-purple-300'
+                      ? 'border-teal-400 shadow-lg bg-teal-50' 
+                      : 'hover:border-teal-300'
                   } ${dayCompleted ? 'opacity-60' : ''}`}
                 >
                   {/* Completion overlay for individual days */}
@@ -331,7 +331,7 @@ const DummyItinerary = () => {
                         <span className={`px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2 ${
                           dayCompleted 
                             ? 'bg-green-100 text-green-800 border border-green-300' 
-                            : 'bg-purple-600 text-white'
+                            : 'bg-teal-600 text-white'
                         }`}>
                           {dayCompleted ? (
                             <CheckCircle2 className="w-3 h-3" />
@@ -354,27 +354,27 @@ const DummyItinerary = () => {
                         })}
                       </p>
                     </div>
-                    <div className="text-purple-600">
+                    <div className="text-teal-600">
                       {expandedDay === day.day ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                     </div>
                   </div>
 
                   {expandedDay === day.day && (
-                    <div className={`p-4 border-t border-purple-200 space-y-6 ${dayCompleted ? 'opacity-75' : ''}`}>
-                      <p className="text-gray-700 bg-white p-4 rounded-lg border border-purple-100">
+                    <div className={`p-4 border-t border-teal-200 space-y-6 ${dayCompleted ? 'opacity-75' : ''}`}>
+                      <p className="text-gray-700 bg-white p-4 rounded-lg border border-teal-100">
                         {day.description}
                       </p>
 
                       {/* Timeline */}
-                      <div className="bg-white p-4 rounded-lg border border-purple-100">
+                      <div className="bg-white p-4 rounded-lg border border-teal-100">
                         <h4 className="font-medium text-gray-900 mb-4 flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-purple-600" />
+                          <Clock className="w-4 h-4 text-teal-600" />
                           Daily Schedule
                         </h4>
                         <div className="space-y-3">
                           {day.timeSlots.map((slot, index) => (
                             <div key={index} className="flex items-start gap-4">
-                              <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-sm font-medium min-w-14 text-center">
+                              <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded text-sm font-medium min-w-14 text-center">
                                 {slot.time}
                               </span>
                               <span className="text-gray-700 py-1 flex-1">{slot.activity}</span>
@@ -384,9 +384,9 @@ const DummyItinerary = () => {
                       </div>
 
                       {/* Activities */}
-                      <div className="bg-white p-4 rounded-lg border border-purple-100">
+                      <div className="bg-white p-4 rounded-lg border border-teal-100">
                         <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
-                          <Navigation className="w-4 h-4 text-purple-600" />
+                          <Navigation className="w-4 h-4 text-teal-600" />
                           Activities & Highlights
                         </h4>
                         <ul className="space-y-2">
@@ -401,23 +401,23 @@ const DummyItinerary = () => {
 
                       {/* Additional Details */}
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="bg-purple-50 p-3 rounded-lg">
+                        <div className="bg-teal-50 p-3 rounded-lg">
                           <h5 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
-                            <Utensils className="w-4 h-4 text-purple-600" />
+                            <Utensils className="w-4 h-4 text-teal-600" />
                             Meals Included
                           </h5>
                           <p className="text-gray-700 text-sm">{day.meals.join(', ')}</p>
                         </div>
-                        <div className="bg-purple-50 p-3 rounded-lg">
+                        <div className="bg-teal-50 p-3 rounded-lg">
                           <h5 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
-                            <Home className="w-4 h-4 text-purple-600" />
+                            <Home className="w-4 h-4 text-teal-600" />
                             Accommodation
                           </h5>
                           <p className="text-gray-700 text-sm">{day.accommodation}</p>
                         </div>
-                        <div className="bg-purple-50 p-3 rounded-lg">
+                        <div className="bg-teal-50 p-3 rounded-lg">
                           <h5 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
-                            <Car className="w-4 h-4 text-purple-600" />
+                            <Car className="w-4 h-4 text-teal-600" />
                             Transport
                           </h5>
                           <p className="text-gray-700 text-sm">{day.transport}</p>
@@ -432,23 +432,23 @@ const DummyItinerary = () => {
         </div>
 
         {/* Emergency Contacts */}
-        <div className={`bg-white rounded-2xl shadow-lg border border-purple-100 p-6 mb-6 ${isCompleted ? 'opacity-60' : ''}`}>
+        <div className={`bg-white rounded-2xl shadow-lg border border-teal-100 p-6 mb-6 ${isCompleted ? 'opacity-60' : ''}`}>
           <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-            <AlertTriangle className="w-5 h-5 text-purple-600" />
+            <AlertTriangle className="w-5 h-5 text-teal-600" />
             Emergency Contacts
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {itinerary.emergencyContacts.map((contact, index) => (
-              <div key={index} className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+              <div key={index} className="bg-teal-50 border border-teal-200 rounded-lg p-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <PhoneCall className="w-5 h-5 text-purple-600" />
+                  <PhoneCall className="w-5 h-5 text-teal-600" />
                   <h3 className="font-medium text-gray-900">{contact.name}</h3>
                 </div>
                 <p className="text-gray-700 mb-2 flex items-center gap-2">
                   <Phone className="w-4 h-4" />
                   {contact.phone}
                 </p>
-                <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs font-medium">
+                <span className="bg-teal-100 text-teal-700 px-2 py-1 rounded text-xs font-medium">
                   {contact.type}
                 </span>
               </div>
@@ -457,17 +457,17 @@ const DummyItinerary = () => {
         </div>
 
         {/* Inclusions & Exclusions */}
-        <div className={`bg-white rounded-2xl shadow-lg border border-purple-100 p-6 ${isCompleted ? 'opacity-60' : ''}`}>
+        <div className={`bg-white rounded-2xl shadow-lg border border-teal-100 p-6 ${isCompleted ? 'opacity-60' : ''}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-purple-600" />
+                <CheckCircle className="w-5 h-5 text-teal-600" />
                 What's Included
               </h3>
               <ul className="space-y-2">
                 {itinerary.inclusions.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -476,13 +476,13 @@ const DummyItinerary = () => {
 
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <XCircle className="w-5 h-5 text-purple-600" />
+                <XCircle className="w-5 h-5 text-teal-600" />
                 What's Not Included
               </h3>
               <ul className="space-y-2">
                 {itinerary.exclusions.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
+                    <XCircle className="w-4 h-4 text-teal-600 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}

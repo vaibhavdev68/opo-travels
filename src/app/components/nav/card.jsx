@@ -25,7 +25,7 @@ export default function Reviews() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center py-20 px-6">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-teal-50 to-pink-50 flex items-center justify-center py-20 px-6">
       
       <div className="max-w-8xl mx-auto w-full px-8 ">
         
@@ -72,7 +72,7 @@ export default function Reviews() {
           </div>
 
           {/* Memories Card */}
-          <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-4xl p-12 shadow-2xl text-white w-xl mx-20">
+          <div className="bg-gradient-to-br from-blue-600 to-teal-600 rounded-4xl p-12 shadow-2xl text-white w-xl mx-20">
             <div className="flex items-center justify-between mb-10">
               <div className="text-7xl font-bold">5,000+</div>
               <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
@@ -128,7 +128,7 @@ export default function Reviews() {
           
           <div className="text-center p-10 bg-white rounded-3xl shadow-2xl border border-gray-100 w-full">
             <div className="text-4xl mb-6">😊</div>
-            <div className="text-5xl font-bold text-purple-600 mb-6">98%</div>
+            <div className="text-5xl font-bold text-teal-600 mb-6">98%</div>
             <div className="text-2xl text-gray-600 font-medium">Happy Customers</div>
           </div>
           
@@ -154,7 +154,7 @@ export default function Reviews() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-gray-50 rounded-3xl p-10 border border-gray-200 w-full">
                 <div className="flex items-center mb-8">
-                  <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mr-8 text-white font-bold text-2xl">
+                  <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-teal-600 rounded-full flex items-center justify-center mr-8 text-white font-bold text-2xl">
                     {testimonial.initials}
                   </div>
                   <div>

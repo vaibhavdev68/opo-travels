@@ -11,7 +11,7 @@ export default function ImageSlider() {
 
   const [current, setCurrent] = React.useState(0);
 
-  // Auto-slide
+  // Auto-slide every 3 seconds
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -19,8 +19,9 @@ export default function ImageSlider() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // Previous & Next
-  const prevSlide = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  // Previous & Next Handlers
+  const prevSlide = () =>
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
   const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
 
   return (
@@ -46,8 +47,10 @@ export default function ImageSlider() {
           <div
             key={i}
             onClick={() => setCurrent(i)}
-            className={`w-3 h-3 rounded-full cursor-pointer ${
-              i === current ? "bg-blue-500" : "bg-white/60"
+            className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+              i === current
+                ? "bg-[#079790] scale-110 shadow-md"
+                : "bg-white/70 hover:bg-[#079790]/60"
             }`}
           ></div>
         ))}
@@ -56,13 +59,15 @@ export default function ImageSlider() {
       {/* Prev/Next Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/50 hover:bg-white/80 text-gray-800 rounded-full p-2"
+        className="absolute top-1/2 left-3 -translate-y-1/2 bg-white/60 hover:bg-[#079790] hover:text-white text-gray-800 rounded-full p-2 transition-all duration-300 shadow-md"
+        aria-label="Previous Slide"
       >
         &#8592;
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/50 hover:bg-white/80 text-gray-800 rounded-full p-2"
+        className="absolute top-1/2 right-3 -translate-y-1/2 bg-white/60 hover:bg-[#079790] hover:text-white text-gray-800 rounded-full p-2 transition-all duration-300 shadow-md"
+        aria-label="Next Slide"
       >
         &#8594;
       </button>

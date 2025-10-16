@@ -32,7 +32,7 @@ export default function AboutUs() {
           <div className="text-center">
             <h1
               className="text-5xl font-[Playfair_Display] font-bold mb-4 
-              bg-gradient-to-r from-purple-700 to-purple-500 bg-clip-text text-transparent"
+              bg-gradient-to-r from-teal-700 to-teal-500 bg-clip-text text-transparent"
             >
               About Us
             </h1>
@@ -48,7 +48,7 @@ export default function AboutUs() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-[Playfair_Display] font-bold text-purple-700 mb-6">
+              <h2 className="text-4xl font-[Playfair_Display] font-bold text-teal-700 mb-6">
                 Our Story
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
@@ -84,10 +84,10 @@ export default function AboutUs() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-700 to-purple-500 rounded-full flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-teal-700 to-teal-500 rounded-full flex items-center justify-center mb-4">
                 <span className="text-white text-2xl">🎯</span>
               </div>
-              <h3 className="text-2xl font-[Playfair_Display] text-purple-700 mb-4">
+              <h3 className="text-2xl font-[Playfair_Display] text-teal-700 mb-4">
                 Our Mission
               </h3>
               <p className="text-gray-600 font-[Poppins]">
@@ -98,10 +98,10 @@ export default function AboutUs() {
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-700 to-purple-500 rounded-full flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-teal-700 to-teal-500 rounded-full flex items-center justify-center mb-4">
                 <span className="text-white text-2xl">👁️</span>
               </div>
-              <h3 className="text-2xl font-[Playfair_Display] text-purple-700 mb-4">
+              <h3 className="text-2xl font-[Playfair_Display] text-teal-700 mb-4">
                 Our Vision
               </h3>
               <p className="text-gray-600 font-[Poppins]">
@@ -117,7 +117,7 @@ export default function AboutUs() {
       {/* Values Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-[Playfair_Display] text-center text-purple-700 mb-12">
+          <h2 className="text-4xl font-[Playfair_Display] text-center text-teal-700 mb-12">
             Our Values
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -142,10 +142,10 @@ export default function AboutUs() {
                 key={i}
                 className="text-center bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-20 h-20 bg-gradient-to-r from-purple-200 to-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-r from-teal-200 to-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl">{value.icon}</span>
                 </div>
-                <h3 className="text-2xl font-[Playfair_Display] text-purple-700 mb-2">
+                <h3 className="text-2xl font-[Playfair_Display] text-teal-700 mb-2">
                   {value.title}
                 </h3>
                 <p className="text-gray-600 font-[Poppins]">{value.text}</p>
@@ -158,7 +158,7 @@ export default function AboutUs() {
       {/* Our Workplace Section */}
       <section className="py-16 bg-gray-100">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-[Playfair_Display] text-center text-purple-700 mb-12">
+          <h2 className="text-4xl font-[Playfair_Display] text-center text-teal-700 mb-12">
             Our Workplace
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -193,7 +193,7 @@ export default function AboutUs() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-[Playfair_Display] text-purple-700 mb-2">
+                  <h3 className="text-xl font-[Playfair_Display] text-teal-700 mb-2">
                     {work.title}
                   </h3>
                   <p className="text-gray-600 font-[Poppins]">{work.text}</p>
@@ -205,7 +205,7 @@ export default function AboutUs() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-purple-700 to-purple-500 text-white">
+      <section className="py-16 bg-gradient-to-r from-teal-700 to-teal-500 text-white">
         <div className="max-w-4xl mx-auto text-center px-4">
           <h2 className="text-4xl font-[Playfair_Display] mb-4">
             Ready to Start Your Journey?
@@ -213,7 +213,7 @@ export default function AboutUs() {
           <p className="text-xl mb-8 font-[Poppins]">
             Let us help you create the perfect travel experience
           </p>
-          <button className="bg-white text-purple-700 px-8 py-3 rounded-lg font-[Poppins] font-bold hover:bg-gray-100 transition duration-300">
+          <button className="bg-white text-teal-700 px-8 py-3 rounded-lg font-[Poppins] font-bold hover:bg-gray-100 transition duration-300">
             Contact Us Today
           </button>
         </div>

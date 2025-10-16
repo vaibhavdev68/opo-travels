@@ -23,7 +23,7 @@ export default function HeroSection() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0"></div>
 
-      {/* Floating Elements (Subtle for theme match) */}
+      {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-4 h-4 bg-white/40 rounded-full animate-pulse"></div>
       <div className="absolute bottom-20 right-16 w-6 h-6 bg-white/30 rounded-full animate-bounce"></div>
       <div className="absolute top-1/2 left-20 w-3 h-3 bg-white/40 rounded-full animate-ping"></div>
@@ -38,20 +38,23 @@ export default function HeroSection() {
             }`}
           >
             <h1 className="text-white text-2xl md:text-5xl lg:text-4xl font-bold drop-shadow-lg">
-              Get In Touch with{" "}
-              <div className="bg-gradient-to-r from-[#079790] to-[#0FBCA6] bg-clip-text text-transparent font-extrabold">
-                OPO TRAVELS
+              Book Your Trip according to{" "}
+              <div
+                className="bg-clip-text text-[#079790] font-extrabold mt-3 text-5xl"
+                // style={{ background: "linear-gradient(to right, #079790, #079790)" }}
+              >
+                your Choice
               </div>
             </h1>
           </div>
 
-          {/* Line 2 (Optional placeholder for subtitle if you add later) */}
+          {/* Line 2 */}
           <div
             className={`transition-all duration-700 delay-300 transform ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            {/* You can add a subtitle or tagline here */}
+            {/* Additional content if needed */}
           </div>
         </div>
       </div>

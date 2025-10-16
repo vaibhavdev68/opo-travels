@@ -21,6 +21,10 @@ export default function JobApplicationForm() {
   const handleChange = (e, section) => {
     const { name, value, files } = e.target;
     if (name === "resume") {
+      if (files[0] && files[0].size > 5 * 1024 * 1024) {
+        alert("Resume file size should be less than 5MB");
+        return;
+      }
       setFormData({ ...formData, resume: files[0] });
     } else if (section) {
       setFormData({
@@ -36,8 +40,32 @@ export default function JobApplicationForm() {
     setFormData({ ...formData, experience: years });
   };
 
+  const validateForm = () => {
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.skills) {
+      alert("Please fill all required fields!");
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert("Please enter a valid email");
+      return false;
+    }
+    const phoneRegex = /^\+?\d{10,15}$/;
+    if (!phoneRegex.test(formData.phone)) {
+      alert("Please enter a valid phone number");
+      return false;
+    }
+    if (!formData.resume) {
+      alert("Please upload your resume");
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
+
     console.log("Form Data:", formData);
     alert("🎉 Application Submitted Successfully!");
   };
@@ -63,63 +91,45 @@ export default function JobApplicationForm() {
               Personal Information
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input label="Full Name" name="fullName" value={formData.fullName} onChange={handleChange} />
-              <Input label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
-              <Input label="Phone Number" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+              <Input label="Full Name*" name="fullName" value={formData.fullName} onChange={handleChange} />
+              <Input label="Email*" name="email" type="email" value={formData.email} onChange={handleChange} />
+              <Input label="Phone*" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
               <Input label="Date of Birth" name="dob" type="date" value={formData.dob} onChange={handleChange} />
-              <Select
-                label="Gender"
-                name="gender"
-                value={formData.gender}
-                onChange={handleChange}
-                options={["Male", "Female", "Other"]}
-              />
+              <Select label="Gender" name="gender" value={formData.gender} onChange={handleChange} options={["Male", "Female", "Other"]} />
               <Input label="Address" name="address" value={formData.address} onChange={handleChange} />
             </div>
           </div>
 
           {/* Graduation Section */}
-          <EducationSection
-            title="Graduation Details"
-            data={formData.graduation}
-            onChange={(e) => handleChange(e, "graduation")}
-          />
+          <EducationSection title="Graduation Details" data={formData.graduation} onChange={(e) => handleChange(e, "graduation")} />
 
           {/* Masters Section */}
-          <EducationSection
-            title="Masters Details"
-            data={formData.masters}
-            onChange={(e) => handleChange(e, "masters")}
-          />
+          <EducationSection title="Masters Details" data={formData.masters} onChange={(e) => handleChange(e, "masters")} />
 
           {/* Experience Section */}
           <div>
-            <h2 className="text-2xl font-semibold text-blue-600 border-l-4 border-blue-500 pl-3 mb-6">
-              Experience
-            </h2>
+            <h2 className="text-2xl font-semibold text-blue-600 border-l-4 border-blue-500 pl-3 mb-6">Experience</h2>
             <div className="flex flex-wrap gap-3">
               {[0, 1, 2, 3, 4, 5].map((year) => (
-                <button
+                <motion.button
                   key={year}
                   type="button"
                   onClick={() => handleExperienceSelect(year)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className={`px-6 py-2 rounded-full font-medium transition ${
-                    formData.experience === year
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+                    formData.experience === year ? "bg-blue-600 text-white shadow-lg" : "bg-blue-100 text-blue-600 hover:bg-blue-200"
                   }`}
                 >
                   {year} {year === 1 ? "Year" : "Years"}
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>
 
           {/* Skills Section */}
           <div>
-            <h2 className="text-2xl font-semibold text-blue-600 border-l-4 border-blue-500 pl-3 mb-6">
-              Key Skills
-            </h2>
+            <h2 className="text-2xl font-semibold text-blue-600 border-l-4 border-blue-500 pl-3 mb-6">Key Skills*</h2>
             <textarea
               name="skills"
               value={formData.skills}
@@ -132,9 +142,7 @@ export default function JobApplicationForm() {
 
           {/* Resume Upload */}
           <div>
-            <h2 className="text-2xl font-semibold text-blue-600 border-l-4 border-blue-500 pl-3 mb-6">
-              Upload Resume
-            </h2>
+            <h2 className="text-2xl font-semibold text-blue-600 border-l-4 border-blue-500 pl-3 mb-6">Upload Resume*</h2>
             <div className="border-2 border-dashed border-blue-300 rounded-xl p-6 text-center bg-blue-50 hover:bg-blue-100 transition">
               <label className="block text-gray-700 font-medium mb-3">
                 Upload your updated resume (PDF or DOCX)
@@ -151,9 +159,7 @@ export default function JobApplicationForm() {
                            hover:file:bg-blue-700 cursor-pointer"
               />
               {formData.resume && (
-                <p className="mt-3 text-green-600 font-medium">
-                  ✅ Uploaded: {formData.resume.name}
-                </p>
+                <p className="mt-3 text-green-600 font-medium">✅ Uploaded: {formData.resume.name}</p>
               )}
             </div>
           </div>

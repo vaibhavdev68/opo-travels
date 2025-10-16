@@ -38,11 +38,11 @@ export default function ProfileTab({ user }) {
 
   return (
     <div className="min-h-screen p-6 bg-white">
-      <div className="bg-gradient-to-br from-purple-50 via-purple-100 to-white rounded-2xl shadow-lg p-6 border border-purple-200">
+      <div className="bg-gradient-to-br from-teal-50 via-teal-100 to-white rounded-2xl shadow-lg p-6 border border-teal-200">
 
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold text-purple-900">My Profile</h2>
+          <h2 className="text-xl font-bold text-teal-900">My Profile</h2>
 
           <div className="flex items-center space-x-4">
             {isEditing && (
@@ -51,8 +51,8 @@ export default function ProfileTab({ user }) {
                 disabled={saving}
                 className={`px-4 py-2 rounded-md text-sm font-medium text-white ${
                   saving
-                    ? "bg-purple-400 cursor-not-allowed"
-                    : "bg-purple-700 hover:bg-purple-800"
+                    ? "bg-teal-400 cursor-not-allowed"
+                    : "bg-teal-700 hover:bg-teal-800"
                 }`}
               >
                 {saving ? "Saving..." : "Save"}
@@ -65,7 +65,7 @@ export default function ProfileTab({ user }) {
                 setIsEditing(!isEditing);
               }}
               disabled={saving}
-              className="flex items-center space-x-1 bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm"
+              className="flex items-center space-x-1 bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm"
             >
               <Edit2 className="w-4 h-4" />
               <span>{isEditing ? "Cancel" : "Edit Profile"}</span>
@@ -81,21 +81,21 @@ export default function ProfileTab({ user }) {
         )}
 
         {/* Profile Completion */}
-        <div className="flex items-center justify-between bg-purple-50 border border-purple-200 rounded-md p-3 mb-6 shadow-sm">
+        <div className="flex items-center justify-between bg-teal-50 border border-teal-200 rounded-md p-3 mb-6 shadow-sm">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full border-4 border-purple-400 flex items-center justify-center text-sm font-semibold text-purple-800">
+            <div className="w-10 h-10 rounded-full border-4 border-teal-400 flex items-center justify-center text-sm font-semibold text-teal-800">
               {user.profileCompletion}%
             </div>
             <div>
-              <p className="text-sm font-medium text-purple-900">
+              <p className="text-sm font-medium text-teal-900">
                 Complete your profile
               </p>
-              <p className="text-xs text-purple-600">
+              <p className="text-xs text-teal-600">
                 Share your Email ID to receive booking updates and other info.
               </p>
             </div>
           </div>
-          <button className="text-purple-700 text-sm font-medium hover:underline">
+          <button className="text-teal-700 text-sm font-medium hover:underline">
             Add Email
           </button>
         </div>
@@ -103,7 +103,7 @@ export default function ProfileTab({ user }) {
         {/* General Information */}
         <div className="space-y-6">
           <div>
-            <h3 className="text-lg font-semibold text-purple-900 mb-4">
+            <h3 className="text-lg font-semibold text-teal-900 mb-4">
               General Information
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -120,20 +120,20 @@ export default function ProfileTab({ user }) {
                 },
               ].map((field, i) => (
                 <div key={i}>
-                  <label className="block text-sm font-medium text-purple-700 mb-1">
+                  <label className="block text-sm font-medium text-teal-700 mb-1">
                     {field.label}
                   </label>
                   <input
                     type="text"
                     value={field.value}
-                    className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm bg-purple-50"
+                    className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm bg-teal-50"
                     readOnly
                   />
                 </div>
               ))}
 
               <div>
-                <label className="block text-sm font-medium text-purple-700 mb-1">
+                <label className="block text-sm font-medium text-teal-700 mb-1">
                   GENDER
                 </label>
                 <select
@@ -141,7 +141,7 @@ export default function ProfileTab({ user }) {
                   value={formData.gender}
                   onChange={handleInputChange}
                   disabled={!isEditing || saving}
-                  className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm disabled:bg-purple-50"
+                  className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm disabled:bg-teal-50"
                 >
                   <option value="">Select gender</option>
                   <option value="male">Male</option>
@@ -151,19 +151,19 @@ export default function ProfileTab({ user }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-purple-700 mb-1">
+                <label className="block text-sm font-medium text-teal-700 mb-1">
                   DATE OF BIRTH
                 </label>
                 <input
                   type="text"
                   value={user.dob || ""}
-                  className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm bg-purple-50"
+                  className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm bg-teal-50"
                   readOnly
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-purple-700 mb-1">
+                <label className="block text-sm font-medium text-teal-700 mb-1">
                   NATIONALITY
                 </label>
                 <input
@@ -173,12 +173,12 @@ export default function ProfileTab({ user }) {
                   onChange={handleInputChange}
                   disabled={!isEditing || saving}
                   placeholder="Select nationality"
-                  className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm disabled:bg-purple-50"
+                  className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm disabled:bg-teal-50"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-purple-700 mb-1">
+                <label className="block text-sm font-medium text-teal-700 mb-1">
                   MARITAL STATUS
                 </label>
                 <select
@@ -186,7 +186,7 @@ export default function ProfileTab({ user }) {
                   value={formData.maritalStatus}
                   onChange={handleInputChange}
                   disabled={!isEditing || saving}
-                  className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm disabled:bg-purple-50"
+                  className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm disabled:bg-teal-50"
                 >
                   <option value="">Select marital status</option>
                   <option value="single">Single</option>
@@ -197,7 +197,7 @@ export default function ProfileTab({ user }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-purple-700 mb-1">
+                <label className="block text-sm font-medium text-teal-700 mb-1">
                   ADDRESS
                 </label>
                 <input
@@ -207,23 +207,23 @@ export default function ProfileTab({ user }) {
                   onChange={handleInputChange}
                   disabled={!isEditing || saving}
                   placeholder="Enter Address"
-                  className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm disabled:bg-purple-50"
+                  className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm disabled:bg-teal-50"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-purple-700 mb-1">
+                <label className="block text-sm font-medium text-teal-700 mb-1">
                   STATE
                 </label>
                 <input
                   type="text"
                   value={user.state || ""}
-                  className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm bg-purple-50"
+                  className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm bg-teal-50"
                   readOnly
                 />
               </div>
             </div>
-            <p className="text-xs text-purple-600 mt-2">
+            <p className="text-xs text-teal-600 mt-2">
               Required for GST purpose on your tax invoice
             </p>
           </div>
@@ -231,7 +231,7 @@ export default function ProfileTab({ user }) {
           {/* Email and Mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
             <div>
-              <label className="block text-sm font-medium text-purple-700 mb-1">
+              <label className="block text-sm font-medium text-teal-700 mb-1">
                 EMAIL
               </label>
               <input
@@ -241,25 +241,25 @@ export default function ProfileTab({ user }) {
                 onChange={handleInputChange}
                 disabled={!isEditing || saving}
                 placeholder="Enter email"
-                className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm disabled:bg-purple-50"
+                className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm disabled:bg-teal-50"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-purple-700 mb-1">
+              <label className="block text-sm font-medium text-teal-700 mb-1">
                 MOBILE NUMBER
               </label>
               <input
                 type="text"
                 value={`+91-${user.phone || ""}`}
-                className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm bg-purple-50"
+                className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm bg-teal-50"
                 readOnly
               />
             </div>
           </div>
 
           {/* Document Section */}
-          <div className="border-t border-purple-200 pt-6">
-            <h3 className="text-lg font-semibold text-purple-900 mb-4">
+          <div className="border-t border-teal-200 pt-6">
+            <h3 className="text-lg font-semibold text-teal-900 mb-4">
               Documents Details
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -270,7 +270,7 @@ export default function ProfileTab({ user }) {
                 { name: "panCardNumber", label: "PAN CARD NUMBER", placeholder: "Enter PAN card number" },
               ].map((field, i) => (
                 <div key={i}>
-                  <label className="block text-sm font-medium text-purple-700 mb-1">
+                  <label className="block text-sm font-medium text-teal-700 mb-1">
                     {field.label}
                   </label>
                   <input
@@ -280,12 +280,12 @@ export default function ProfileTab({ user }) {
                     onChange={handleInputChange}
                     disabled={!isEditing || saving}
                     placeholder={field.placeholder}
-                    className="w-full border border-purple-200 rounded-md px-3 py-2 text-sm disabled:bg-purple-50"
+                    className="w-full border border-teal-200 rounded-md px-3 py-2 text-sm disabled:bg-teal-50"
                   />
                 </div>
               ))}
             </div>
-            <p className="text-xs text-purple-600 mt-2">
+            <p className="text-xs text-teal-600 mt-2">
               NOTE: Your PAN No. will only be used for international bookings as per RBI Guidelines.
             </p>
           </div>

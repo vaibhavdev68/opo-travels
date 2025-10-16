@@ -21,13 +21,17 @@ export default function CardGrid() {
     <motion.div
       className="bg-white rounded-xl p-6 flex flex-col items-center justify-center
                  transition-all duration-300 ease-in-out
-                 hover:shadow-xl hover:shadow-gray-400/50 hover:backdrop-blur-sm"
+                 hover:shadow-xl hover:shadow-gray-400/50 hover:backdrop-blur-sm cursor-pointer"
       whileHover={{ y: -5 }}
     >
       <motion.div className="mb-4" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
         <Image src={card.svg} alt={card.text} width={64} height={64} />
       </motion.div>
-      <motion.h1 className="text-xl font-bold text-center" whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+      <motion.h1
+        className="text-xl font-bold text-center"
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
+      >
         {card.text}
       </motion.h1>
     </motion.div>
@@ -43,11 +47,9 @@ export default function CardGrid() {
       </div>
 
       {/* Second Row: 3 cards centered */}
-      <div className="flex justify-center gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
         {secondRow.map((card, index) => (
-          <div className="w-full sm:w-auto md:w-64" key={index}>
-            <Card card={card} />
-          </div>
+          <Card key={index} card={card} />
         ))}
       </div>
     </div>

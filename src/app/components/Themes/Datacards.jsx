@@ -13,21 +13,21 @@ export default function CardGrid() {
   }, []);
 
   const iconMap = {
-    "Ideal Duration": <Clock className="text-purple-700 w-10 h-10 mb-3" />,
-    "Best Time": <Calendar className="text-purple-700 w-10 h-10 mb-3" />,
-    "Average Price": <Wallet className="text-purple-700 w-10 h-10 mb-3" />,
-    "Top Attractions": <MapPin className="text-purple-700 w-10 h-10 mb-3" />,
+    "Ideal Duration": <Clock className="text-teal-700 w-10 h-10 mb-3" />,
+    "Best Time": <Calendar className="text-teal-700 w-10 h-10 mb-3" />,
+    "Average Price": <Wallet className="text-teal-700 w-10 h-10 mb-3" />,
+    "Top Attractions": <MapPin className="text-teal-700 w-10 h-10 mb-3" />,
   };
 
   return (
-    <section className="bg-purple-100 py-16 px-4">
+    <section className="bg-teal-50 py-16 px-4">
       {/* Section Heading */}
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-purple-800 mb-3 drop-shadow-sm">
+        <h2 className="text-3xl md:text-4xl font-bold text-teal-800 mb-3 drop-shadow-sm">
           Group Travel Highlights
         </h2>
-        <p className="text-purple-600 text-lg">
-          Here’s a quick glimpse of what makes your trip special 🌿
+        <p className="text-teal-600 text-lg">
+          Here's a quick glimpse of what makes your trip special 🌿
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function CardGrid() {
               group
               rounded-2xl
               shadow-[0_4px_30px_rgba(0,0,0,0.1)]
-              hover:shadow-[0_0_40px_rgba(128,90,213,0.3)]
+              hover:shadow-[0_0_40px_rgba(7,151,144,0.3)]
               hover:scale-105
               transition-all
               duration-300
@@ -54,17 +54,17 @@ export default function CardGrid() {
               <div className="flex justify-center mb-4">{iconMap[card.title]}</div>
 
               {/* Dynamic Value */}
-              <h3 className="text-xl md:text-2xl font-bold text-purple-800 mb-2 group-hover:text-purple-900">
+              <h3 className="text-xl md:text-2xl font-bold text-teal-800 mb-2 group-hover:text-teal-900">
                 {card.dynamic}
               </h3>
 
               {/* Description */}
-              <p className="text-purple-700 mb-4 text-base leading-relaxed group-hover:text-purple-800">
+              <p className="text-teal-700 mb-4 text-base leading-relaxed group-hover:text-teal-800">
                 {card.text}
               </p>
 
               {/* Title */}
-              <h4 className="text-purple-600 font-semibold text-lg group-hover:text-purple-700">
+              <h4 className="text-teal-600 font-semibold text-lg group-hover:text-teal-700">
                 {card.title}
               </h4>
             </div>

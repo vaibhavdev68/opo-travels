@@ -98,18 +98,18 @@ export default function CoTravelerDashboard() {
 
   const getAvatarColor = (name) => {
     const colors = [
-      "bg-gradient-to-r from-purple-400 to-purple-500",
-      "bg-gradient-to-r from-purple-300 to-purple-400",
-      "bg-gradient-to-r from-purple-500 to-purple-600",
-      "bg-gradient-to-r from-purple-200 to-purple-300",
+      "bg-gradient-to-r from-teal-400 to-teal-500",
+      "bg-gradient-to-r from-teal-300 to-teal-400",
+      "bg-gradient-to-r from-teal-500 to-teal-600",
+      "bg-gradient-to-r from-teal-200 to-teal-300",
     ];
     return colors[name.length % colors.length];
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-pink-100">
+    <div className="min-h-screen bg-gradient-to-br from-teal-50 via-teal-100 to-blue-100">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-500 to-purple-400 shadow-lg">
+      <div className="bg-gradient-to-r from-teal-500 to-teal-400 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-4">
@@ -118,14 +118,14 @@ export default function CoTravelerDashboard() {
               </div>
               <div>
                 <h1 className="text-3xl font-bold text-white">Co-Traveler Dashboard</h1>
-                <p className="text-purple-100 text-sm">Manage your travel companions</p>
+                <p className="text-teal-100 text-sm">Manage your travel companions</p>
               </div>
             </div>
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsAdding(true)}
-              className="bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:shadow-lg transition-all shadow-md"
+              className="bg-white text-teal-600 px-6 py-3 rounded-xl font-semibold flex items-center gap-2 hover:shadow-lg transition-all shadow-md"
             >
               <Plus size={20} />
               Add Traveler
@@ -141,15 +141,15 @@ export default function CoTravelerDashboard() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100"
+            className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100"
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-purple-600 text-sm font-medium">Total Travelers</div>
-                <div className="text-3xl font-bold text-purple-800 mt-2">{travelers.length}</div>
+                <div className="text-teal-600 text-sm font-medium">Total Travelers</div>
+                <div className="text-3xl font-bold text-teal-800 mt-2">{travelers.length}</div>
               </div>
-              <div className="bg-purple-100 p-3 rounded-xl">
-                <Users className="h-6 w-6 text-purple-600" />
+              <div className="bg-teal-100 p-3 rounded-xl">
+                <Users className="h-6 w-6 text-teal-600" />
               </div>
             </div>
           </motion.div>
@@ -158,12 +158,12 @@ export default function CoTravelerDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100"
+            className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100"
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-purple-600 text-sm font-medium">Active</div>
-                <div className="text-3xl font-bold text-purple-800 mt-2">{travelers.length}</div>
+                <div className="text-teal-600 text-sm font-medium">Active</div>
+                <div className="text-3xl font-bold text-teal-800 mt-2">{travelers.length}</div>
               </div>
               <div className="bg-green-100 p-3 rounded-xl">
                 <Users className="h-6 w-6 text-green-600" />
@@ -175,12 +175,12 @@ export default function CoTravelerDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100"
+            className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100"
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-purple-600 text-sm font-medium">Groups</div>
-                <div className="text-3xl font-bold text-purple-800 mt-2">2</div>
+                <div className="text-teal-600 text-sm font-medium">Groups</div>
+                <div className="text-3xl font-bold text-teal-800 mt-2">2</div>
               </div>
               <div className="bg-blue-100 p-3 rounded-xl">
                 <Users className="h-6 w-6 text-blue-600" />
@@ -192,15 +192,15 @@ export default function CoTravelerDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100"
+            className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100"
           >
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-purple-600 text-sm font-medium">Next Trip</div>
-                <div className="text-lg font-bold text-purple-800 mt-2">Dec 15, 2024</div>
+                <div className="text-teal-600 text-sm font-medium">Next Trip</div>
+                <div className="text-lg font-bold text-teal-800 mt-2">Dec 15, 2024</div>
               </div>
-              <div className="bg-pink-100 p-3 rounded-xl">
-                <Users className="h-6 w-6 text-pink-600" />
+              <div className="bg-blue-100 p-3 rounded-xl">
+                <Users className="h-6 w-6 text-blue-600" />
               </div>
             </div>
           </motion.div>
@@ -212,7 +212,7 @@ export default function CoTravelerDashboard() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsAdding(true)}
-            className="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="bg-gradient-to-r from-teal-500 to-teal-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             <Plus size={24} />
           </motion.button>
@@ -223,19 +223,19 @@ export default function CoTravelerDashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden"
+          className="bg-white rounded-2xl shadow-lg border border-teal-100 overflow-hidden"
         >
           {/* Section Header with Add Button */}
-          <div className="px-6 py-4 border-b border-purple-100 bg-gradient-to-r from-purple-50 to-purple-100 flex items-center justify-between">
+          <div className="px-6 py-4 border-b border-teal-100 bg-gradient-to-r from-teal-50 to-teal-100 flex items-center justify-between">
             <div>
-              <h2 className="text-xl font-bold text-purple-800">Travel Companions</h2>
-              <p className="text-purple-600 text-sm">Manage your travel group members</p>
+              <h2 className="text-xl font-bold text-teal-800">Travel Companions</h2>
+              <p className="text-teal-600 text-sm">Manage your travel group members</p>
             </div>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsAdding(true)}
-              className="hidden md:flex bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-lg font-semibold items-center gap-2 text-sm hover:shadow-md transition-all"
+              className="hidden md:flex bg-gradient-to-r from-teal-500 to-teal-600 text-white px-4 py-2 rounded-lg font-semibold items-center gap-2 text-sm hover:shadow-md transition-all"
             >
               <Plus size={16} />
               Add New
@@ -249,11 +249,11 @@ export default function CoTravelerDashboard() {
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                className="border-b border-purple-200 bg-purple-50/50"
+                className="border-b border-teal-200 bg-teal-50/50"
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-lg font-semibold text-purple-800 flex items-center gap-2">
+                    <h3 className="text-lg font-semibold text-teal-800 flex items-center gap-2">
                       <Plus size={20} />
                       Add New Traveler
                     </h3>
@@ -269,65 +269,65 @@ export default function CoTravelerDashboard() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div>
-                      <label className="text-sm font-medium text-purple-700 mb-2 block">Full Name *</label>
+                      <label className="text-sm font-medium text-teal-700 mb-2 block">Full Name *</label>
                       <input
                         type="text"
                         placeholder="Enter full name"
                         value={newTraveler.name}
                         onChange={(e) => handleNewTravelerChange("name", e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent bg-white"
+                        className="w-full px-4 py-3 border border-teal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white"
                         required
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-purple-700 mb-2 block">Email *</label>
+                      <label className="text-sm font-medium text-teal-700 mb-2 block">Email *</label>
                       <input
                         type="email"
                         placeholder="Enter email"
                         value={newTraveler.email}
                         onChange={(e) => handleNewTravelerChange("email", e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent bg-white"
+                        className="w-full px-4 py-3 border border-teal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white"
                         required
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-purple-700 mb-2 block">Phone</label>
+                      <label className="text-sm font-medium text-teal-700 mb-2 block">Phone</label>
                       <input
                         type="tel"
                         placeholder="Enter phone number"
                         value={newTraveler.phone}
                         onChange={(e) => handleNewTravelerChange("phone", e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent bg-white"
+                        className="w-full px-4 py-3 border border-teal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-purple-700 mb-2 block">Emergency Contact</label>
+                      <label className="text-sm font-medium text-teal-700 mb-2 block">Emergency Contact</label>
                       <input
                         type="tel"
                         placeholder="Emergency contact"
                         value={newTraveler.emergencyContact}
                         onChange={(e) => handleNewTravelerChange("emergencyContact", e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent bg-white"
+                        className="w-full px-4 py-3 border border-teal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-purple-700 mb-2 block">Dietary Preferences</label>
+                      <label className="text-sm font-medium text-teal-700 mb-2 block">Dietary Preferences</label>
                       <input
                         type="text"
                         placeholder="Dietary needs"
                         value={newTraveler.dietaryPreferences}
                         onChange={(e) => handleNewTravelerChange("dietaryPreferences", e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent bg-white"
+                        className="w-full px-4 py-3 border border-teal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white"
                       />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-purple-700 mb-2 block">Medical Conditions</label>
+                      <label className="text-sm font-medium text-teal-700 mb-2 block">Medical Conditions</label>
                       <input
                         type="text"
                         placeholder="Medical conditions"
                         value={newTraveler.medicalConditions}
                         onChange={(e) => handleNewTravelerChange("medicalConditions", e.target.value)}
-                        className="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-300 focus:border-transparent bg-white"
+                        className="w-full px-4 py-3 border border-teal-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-300 focus:border-transparent bg-white"
                       />
                     </div>
                   </div>
@@ -340,7 +340,7 @@ export default function CoTravelerDashboard() {
                       disabled={!newTraveler.name || !newTraveler.email}
                       className={`px-6 py-3 rounded-xl font-semibold flex items-center gap-2 shadow-md transition-all ${
                         newTraveler.name && newTraveler.email
-                          ? "bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:shadow-lg"
+                          ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white hover:shadow-lg"
                           : "bg-gray-200 text-gray-400 cursor-not-allowed"
                       }`}
                     >
@@ -373,7 +373,7 @@ export default function CoTravelerDashboard() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-gradient-to-br from-white to-purple-50 rounded-2xl p-6 shadow-md border border-purple-100 hover:shadow-lg transition-all duration-300"
+                    className="bg-gradient-to-br from-white to-teal-50 rounded-2xl p-6 shadow-md border border-teal-100 hover:shadow-lg transition-all duration-300"
                   >
                     {/* Header with Avatar and Actions */}
                     <div className="flex items-center justify-between mb-4">
@@ -387,12 +387,12 @@ export default function CoTravelerDashboard() {
                               type="text"
                               value={traveler.name}
                               onChange={(e) => handleInputChange(traveler.id, "name", e.target.value)}
-                              className="text-lg font-bold text-purple-800 bg-transparent border-b border-purple-300 focus:outline-none focus:border-purple-500"
+                              className="text-lg font-bold text-teal-800 bg-transparent border-b border-teal-300 focus:outline-none focus:border-teal-500"
                             />
                           ) : (
-                            <h3 className="text-lg font-bold text-purple-800">{traveler.name}</h3>
+                            <h3 className="text-lg font-bold text-teal-800">{traveler.name}</h3>
                           )}
-                          <p className="text-purple-600 text-sm">{traveler.email}</p>
+                          <p className="text-teal-600 text-sm">{traveler.email}</p>
                         </div>
                       </div>
                       <div className="flex gap-1">
@@ -421,7 +421,7 @@ export default function CoTravelerDashboard() {
                               whileHover={{ scale: 1.1 }}
                               whileTap={{ scale: 0.9 }}
                               onClick={() => handleEdit(traveler.id)}
-                              className="p-2 text-purple-500 hover:bg-purple-50 rounded-lg transition-colors"
+                              className="p-2 text-teal-500 hover:bg-teal-50 rounded-lg transition-colors"
                             >
                               <Edit2 size={16} />
                             </motion.button>
@@ -441,16 +441,16 @@ export default function CoTravelerDashboard() {
                     {/* Contact Information */}
                     <div className="space-y-3">
                       <div className="flex items-center gap-3 text-sm">
-                        <Phone size={16} className="text-purple-500" />
+                        <Phone size={16} className="text-teal-500" />
                         {editingId === traveler.id ? (
                           <input
                             type="tel"
                             value={traveler.phone}
                             onChange={(e) => handleInputChange(traveler.id, "phone", e.target.value)}
-                            className="flex-1 bg-transparent border-b border-purple-300 focus:outline-none focus:border-purple-500 text-purple-700"
+                            className="flex-1 bg-transparent border-b border-teal-300 focus:outline-none focus:border-teal-500 text-teal-700"
                           />
                         ) : (
-                          <span className="text-purple-700">{traveler.phone}</span>
+                          <span className="text-teal-700">{traveler.phone}</span>
                         )}
                       </div>
 
@@ -461,10 +461,10 @@ export default function CoTravelerDashboard() {
                             type="tel"
                             value={traveler.emergencyContact}
                             onChange={(e) => handleInputChange(traveler.id, "emergencyContact", e.target.value)}
-                            className="flex-1 bg-transparent border-b border-purple-300 focus:outline-none focus:border-purple-500 text-purple-700"
+                            className="flex-1 bg-transparent border-b border-teal-300 focus:outline-none focus:border-teal-500 text-teal-700"
                           />
                         ) : (
-                          <span className="text-purple-700">{traveler.emergencyContact}</span>
+                          <span className="text-teal-700">{traveler.emergencyContact}</span>
                         )}
                       </div>
 
@@ -475,10 +475,10 @@ export default function CoTravelerDashboard() {
                             type="text"
                             value={traveler.dietaryPreferences}
                             onChange={(e) => handleInputChange(traveler.id, "dietaryPreferences", e.target.value)}
-                            className="flex-1 bg-transparent border-b border-purple-300 focus:outline-none focus:border-purple-500 text-purple-700"
+                            className="flex-1 bg-transparent border-b border-teal-300 focus:outline-none focus:border-teal-500 text-teal-700"
                           />
                         ) : (
-                          <span className="text-purple-700">{traveler.dietaryPreferences}</span>
+                          <span className="text-teal-700">{traveler.dietaryPreferences}</span>
                         )}
                       </div>
 
@@ -489,10 +489,10 @@ export default function CoTravelerDashboard() {
                             type="text"
                             value={traveler.medicalConditions}
                             onChange={(e) => handleInputChange(traveler.id, "medicalConditions", e.target.value)}
-                            className="flex-1 bg-transparent border-b border-purple-300 focus:outline-none focus:border-purple-500 text-purple-700"
+                            className="flex-1 bg-transparent border-b border-teal-300 focus:outline-none focus:border-teal-500 text-teal-700"
                           />
                         ) : (
-                          <span className="text-purple-700">{traveler.medicalConditions}</span>
+                          <span className="text-teal-700">{traveler.medicalConditions}</span>
                         )}
                       </div>
                     </div>
@@ -507,16 +507,16 @@ export default function CoTravelerDashboard() {
                 animate={{ opacity: 1 }}
                 className="text-center py-16"
               >
-                <div className="bg-purple-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Users size={32} className="text-purple-500" />
+                <div className="bg-teal-100 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <Users size={32} className="text-teal-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-purple-800 mb-2">No travelers yet</h3>
-                <p className="text-purple-600 mb-6">Add your first travel companion to get started</p>
+                <h3 className="text-xl font-semibold text-teal-800 mb-2">No travelers yet</h3>
+                <p className="text-teal-600 mb-6">Add your first travel companion to get started</p>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsAdding(true)}
-                  className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 mx-auto shadow-md hover:shadow-lg transition-all"
+                  className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-xl font-semibold flex items-center gap-2 mx-auto shadow-md hover:shadow-lg transition-all"
                 >
                   <Plus size={20} />
                   Add Your First Traveler

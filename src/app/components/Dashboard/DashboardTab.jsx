@@ -70,10 +70,10 @@ export default function DashboardTab() {
 
   return (
     <div className="min-h-screen p-6 bg-white">
-      <div className="bg-gradient-to-br from-purple-50 via-purple-100 to-white rounded-2xl shadow-lg p-6 border border-purple-200 space-y-6">
+      <div className="bg-gradient-to-br from-teal-50 via-teal-100 to-white rounded-2xl shadow-lg p-6 border border-teal-200 space-y-6">
 
         {/* Title */}
-        <h2 className="text-xl font-bold text-purple-900">My Booking</h2>
+        <h2 className="text-xl font-bold text-teal-900">My Booking</h2>
 
         {/* Booking Stats */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -82,26 +82,26 @@ export default function DashboardTab() {
         </div>
 
         {/* Quick Stats */}
-        <div className="bg-purple-50 rounded-xl p-6 border border-purple-200 shadow-sm">
-          <h3 className="text-lg font-semibold text-purple-900 mb-4">
+        <div className="bg-teal-50 rounded-xl p-6 border border-teal-200 shadow-sm">
+          <h3 className="text-lg font-semibold text-teal-900 mb-4">
             Quick Stats
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">20</div>
-              <div className="text-sm text-purple-700">Total Bookings</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">20</div>
+              <div className="text-sm text-teal-700">Total Bookings</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">₹2,53,500</div>
-              <div className="text-sm text-purple-700">Total Spent</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">₹2,53,500</div>
+              <div className="text-sm text-teal-700">Total Spent</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">85%</div>
-              <div className="text-sm text-purple-700">Success Rate</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">85%</div>
+              <div className="text-sm text-teal-700">Success Rate</div>
             </div>
-            <div className="text-center p-4 bg-gradient-to-br from-purple-100 to-white rounded-lg border border-purple-200 shadow-sm">
-              <div className="text-2xl font-bold text-purple-900">₹12,300</div>
-              <div className="text-sm text-purple-700">Total Refunded</div>
+            <div className="text-center p-4 bg-gradient-to-br from-teal-100 to-white rounded-lg border border-teal-200 shadow-sm">
+              <div className="text-2xl font-bold text-teal-900">₹12,300</div>
+              <div className="text-sm text-teal-700">Total Refunded</div>
             </div>
           </div>
         </div>

@@ -52,19 +52,19 @@ export default function FAQEnquiry({ faqs }) {
             {faqs.map((faq) => (
               <div
                 key={faq.id}
-                className="border border-purple-300 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
+                className="border border-teal-300 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
               >
                 <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-purple-50 rounded-2xl transition-colors duration-300"
+                  className="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-teal-50 rounded-2xl transition-colors duration-300"
                   onClick={() => toggleItem(faq.id)}
                 >
-                  <span className="text-lg font-semibold text-purple-700">
+                  <span className="text-lg font-semibold text-teal-700">
                     {faq.question}
                   </span>
                   <svg
                     className={`w-6 h-6 transform transition-transform duration-300 ${
                       openItem === faq.id ? "rotate-180" : ""
-                    } text-purple-600`}
+                    } text-teal-600`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ export default function FAQEnquiry({ faqs }) {
                   </svg>
                 </button>
                 {openItem === faq.id && (
-                  <div className="px-6 pb-4 bg-purple-50 rounded-b-2xl transition-all duration-300">
+                  <div className="px-6 pb-4 bg-teal-50 rounded-b-2xl transition-all duration-300">
                     <p className="text-gray-700">{faq.answer}</p>
                   </div>
                 )}
@@ -89,7 +89,7 @@ export default function FAQEnquiry({ faqs }) {
 
         {/* Enquiry Form Section */}
         <div className="lg:w-2/5 bg-white/20 backdrop-blur-md border border-white/30 shadow-xl rounded-3xl p-6">
-          <h1 className="text-2xl font-bold mb-6 text-purple-700 text-center lg:text-left">
+          <h1 className="text-2xl font-bold mb-6 text-teal-700 text-center lg:text-left">
             📩 Send Enquiry
           </h1>
 
@@ -106,7 +106,7 @@ export default function FAQEnquiry({ faqs }) {
               placeholder="Your Name"
               value={form.name}
               onChange={handleChange}
-              className="w-full p-3 rounded-xl border border-purple-300 bg-white/50 focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-inner"
+              className="w-full p-3 rounded-xl border border-teal-300 bg-white/50 focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-inner"
               required
             />
 
@@ -116,12 +116,12 @@ export default function FAQEnquiry({ faqs }) {
               placeholder="Email Address"
               value={form.email}
               onChange={handleChange}
-              className="w-full p-3 rounded-xl border border-purple-300 bg-white/50 focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-inner"
+              className="w-full p-3 rounded-xl border border-teal-300 bg-white/50 focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-inner"
               required
             />
 
             <div className="flex">
-              <span className="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-purple-300 bg-purple-100 text-purple-700 font-semibold">
+              <span className="inline-flex items-center px-3 rounded-l-xl border border-r-0 border-teal-300 bg-teal-100 text-teal-700 font-semibold">
                 +91
               </span>
               <input
@@ -130,14 +130,14 @@ export default function FAQEnquiry({ faqs }) {
                 placeholder="Mobile Number"
                 value={form.mobile}
                 onChange={handleChange}
-                className="flex-1 p-3 rounded-r-xl border border-purple-300 bg-white/50 focus:ring-2 focus:ring-purple-500 focus:border-transparent shadow-inner"
+                className="flex-1 p-3 rounded-r-xl border border-teal-300 bg-white/50 focus:ring-2 focus:ring-teal-500 focus:border-transparent shadow-inner"
                 required
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-500 text-white font-bold text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-teal-500 to-teal-700 hover:from-teal-700 hover:to-teal-500 text-white font-bold text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
             >
               Send Enquiry
             </button>
