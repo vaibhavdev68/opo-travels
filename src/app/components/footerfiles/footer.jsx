@@ -99,7 +99,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/careers"
+                      href="/career"
                       className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-teal-400 transition-all duration-300 transform hover:translate-x-2 group"
                     >
                       <FileText size={18} className="text-teal-500 group-hover:text-teal-400" /> 
