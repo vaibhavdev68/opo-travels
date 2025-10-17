@@ -126,7 +126,7 @@ export default function Footer() {
                 <ul className="space-y-3 md:space-y-4 text-sm md:text-base">
                   <li>
                     <Link
-                      href="/terms"
+                      href="/Terms"
                       className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-teal-400 transition-all duration-300 transform hover:translate-x-2 group"
                     >
                       <Shield size={18} className="text-teal-500 group-hover:text-teal-400" /> 
@@ -135,7 +135,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/privacy"
+                      href="/Privacy"
                       className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-teal-400 transition-all duration-300 transform hover:translate-x-2 group"
                     >
                       <FileText size={18} className="text-teal-500 group-hover:text-teal-400" /> 
@@ -144,7 +144,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link
-                      href="/refund"
+                      href="/Refund"
                       className="flex items-center justify-center md:justify-start gap-3 text-gray-300 hover:text-teal-400 transition-all duration-300 transform hover:translate-x-2 group"
                     >
                       <RefreshCcw size={18} className="text-teal-500 group-hover:text-teal-400" /> 
@@ -166,7 +166,7 @@ export default function Footer() {
                   </li>
                   <li className="flex items-center justify-center md:justify-start gap-3 hover:text-teal-300 transition-colors">
                     <Mail size={18} className="text-teal-500 flex-shrink-0" /> 
-                    <span>support@opotravels.com</span>
+                    <span>support@opotravels.in</span>
                   </li>
                   <li className="flex items-center justify-center md:justify-start gap-3 hover:text-teal-300 transition-colors">
                     <MapPin size={18} className="text-teal-500 flex-shrink-0" /> 
