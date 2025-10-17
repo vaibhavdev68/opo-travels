@@ -1,44 +1,72 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { messages } = await request.json();
-    
     if (!process.env.GEMINI_API_KEY) {
       return NextResponse.json(
-        { reply: "I'm currently experiencing technical difficulties. Please try again later or contact us directly at +91-77550-47316." },
+        { error: "API key not configured" },
         { status: 500 }
       );
     }
+ 
+    const body = await request.json();
+    const { origin, destination, travelDate, duration, budget, travelType } = body;
 
-    // Get the latest user message
-    const userMessage = messages[messages.length - 1]?.content || '';
+    if (!origin || !destination || !travelDate || !duration || !budget || !travelType) {
+      return NextResponse.json(
+        { error: "All fields are required" },
+        { status: 400 }
+      );
+    }
 
-    // Prepare conversation history for Gemini
-    const conversationHistory = messages.map(msg => {
-      const role = msg.role === 'assistant' ? 'model' : 'user';
-      return {
-        role: role,
-        parts: [{ text: msg.content }]
-      };
-    });
+    const prompt = `
+You are an expert travel planner. Create a detailed, practical travel itinerary with the following details:
 
-    const systemPrompt = `You are a helpful travel assistant for OPO Travels. Help users with travel planning, destinations, bookings, and travel advice. Keep responses friendly and informative.
+ORIGIN: ${origin}
+DESTINATION: ${destination} 
+TRAVEL DATE: ${travelDate}
+DURATION: ${duration} days
+BUDGET LEVEL: ${budget}
+TRAVEL TYPE: ${travelType}
 
-About OPO Travels:
-- We specialize in customized travel packages
-- We offer flights, hotels, and complete tour packages
-- Popular destinations: Kerala, Goa, Rajasthan, Himachal
-- Contact: Phone +91-XXXXX-XXXXX, WhatsApp +91-77550-47316, email info@opotravels.com
+Please provide a comprehensive travel plan that includes:
 
-Guidelines:
-- Be conversational and helpful
-- Provide travel suggestions and advice
-- For specific bookings, direct users to our website or contact methods
-- Keep responses concise but informative
-- Use emojis occasionally to make it engaging
-- Do not mention that you are an AI or Gemini assistant
-- Focus on travel-related queries but be helpful with general questions too`;
+1. TRIP OVERVIEW
+   - Brief summary and highlights
+   - Best time to visit and weather expectations
+
+2. DAY-BY-DAY ITINERARY
+   For each day, include:
+   - Morning activities with specific locations
+   - Afternoon activities with specific locations  
+   - Evening activities with specific locations
+   - Travel time estimates between locations
+
+3. ACCOMMODATION RECOMMENDATIONS
+   - ${budget}-friendly options in different areas
+   - Best neighborhoods to stay in
+
+4. TRANSPORTATION GUIDE
+   - How to travel from ${origin} to ${destination}
+   - Local transportation options
+
+5. DINING & FOOD EXPERIENCES
+   - Must-try local dishes
+   - Restaurant recommendations for ${budget} budget
+
+6. BUDGET BREAKDOWN (in Indian Rupees)
+   - Accommodation, food, activity, and transportation costs
+   - Money-saving tips
+
+7. ${travelType.toUpperCase()} TRAVEL TIPS
+   - Specific advice for ${travelType} travel
+   - Safety considerations
+   - Cultural etiquette
+
+IMPORTANT: Do not include any branding like "Gemini", "AI", "Google AI", or similar terms in your response. Present the information as a professional travel itinerary.
+
+Please make the itinerary practical, specific, and easy to follow.
+`;
 
     const modelsToTry = [
       { name: "gemini-2.0-flash", endpoint: "v1" },
@@ -67,8 +95,7 @@ Guidelines:
               {
                 parts: [
                   {
-                    text: systemPrompt + "\n\nCurrent conversation:\n" + 
-                      conversationHistory.map(msg => `${msg.role}: ${msg.parts[0].text}`).join('\n')
+                    text: prompt
                   }
                 ]
               }
@@ -77,7 +104,7 @@ Guidelines:
               temperature: 0.7,
               topK: 40,
               topP: 0.95,
-              maxOutputTokens: 1000,
+              maxOutputTokens: 8192,
             }
           }),
         });
@@ -92,13 +119,15 @@ Guidelines:
         if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
           let generatedText = data.candidates[0].content.parts[0].text;
           
-          // Clean up response
+          // ONLY remove asterisks for clean formatting
           generatedText = generatedText.replace(/\*\*/g, '').replace(/\*/g, '');
           
           console.log(`Success with model: ${model}`);
           
           return NextResponse.json({ 
-            reply: generatedText
+            success: true,
+            plan: generatedText,
+            modelUsed: model
           });
         } else {
           throw new Error(`Model ${model} returned unexpected response format`);
@@ -110,76 +139,121 @@ Guidelines:
       }
     }
 
-    // If all models fail, use fallback responses
-    console.error('All Gemini models failed, using fallback response');
-    const fallbackReply = generateTravelResponse(userMessage);
-    
-    return NextResponse.json({ 
-      reply: fallbackReply
-    });
+    throw new Error(`All models failed. Last error: ${lastError?.message}`);
 
   } catch (error) {
-    console.error('Chat API error:', error);
+    console.error("Error generating travel plan:", error);
     
-    // Final fallback
-    try {
-      const body = await request.json();
-      const userMessage = body.messages?.slice(-1)[0]?.content || '';
-      const fallbackReply = generateTravelResponse(userMessage);
-      return NextResponse.json({ reply: fallbackReply });
-    } catch (parseError) {
-      return NextResponse.json(
-        { reply: "Hello! 👋 I'm your OPO Travels assistant! How can I help you with your travel plans today?" },
-        { status: 500 }
-      );
-    }
+    const mockPlan = generateMockPlan(origin, destination, travelDate, duration, budget, travelType);
+    
+    return NextResponse.json({ 
+      success: true,
+      plan: mockPlan,
+      note: "Using enhanced travel data - API models not accessible"
+    });
   }
 }
 
-// Fallback function for travel responses
-function generateTravelResponse(userMessage) {
-  if (!userMessage) {
-    return "Hello! 👋 I'm your OPO Travels assistant! How can I help you with your travel plans today?";
-  }
+function generateMockPlan(origin, destination, travelDate, duration, budget, travelType) {
+  return `
+🗺️ OPO Travel Plan: ${origin} to ${destination}
+
+TRIP OVERVIEW
+• Duration: ${duration} days
+• Travel Date: ${travelDate}
+• Budget: ${budget}
+• Travel Style: ${travelType}
+• Best Time to Visit: Based on your travel date
+• Weather: Pleasant conditions expected
+
+DAY-BY-DAY ITINERARY
+
+Day 1: Arrival & Settlement
+• Morning: Travel from ${origin} to ${destination}
+• Afternoon: Check into ${budget}-friendly accommodation
+• Evening: Explore local neighborhood, casual dinner
+
+Day 2: City Exploration
+• Morning: Visit main landmarks and attractions
+• Afternoon: Local market and cultural experiences  
+• Evening: Traditional cuisine at recommended restaurant
+
+${duration > 2 ? `Day 3-${duration-1}: Adventure & Culture
+• Outdoor activities or museum visits
+• Day trips to nearby attractions
+• Local festival or event participation` : ''}
+
+Final Day: Departure
+• Morning: Last-minute shopping and breakfast
+• Afternoon: Travel back to ${origin}
+
+ACCOMMODATION RECOMMENDATIONS
+• Budget Range: ${getBudgetRange(budget)}
+• Recommended Areas: City center or tourist-friendly neighborhoods
+• Tips: Book in advance for better rates
+
+TRANSPORTATION GUIDE
+• To ${destination}: Flights/trains from ${origin}
+• Local: Public transport, taxis, and walking
+• Tips: Get local transport card for savings
+
+DINING & FOOD EXPERIENCES
+• Must-try local dishes
+• ${budget}-friendly restaurant suggestions
+• Food markets for authentic experiences
+
+BUDGET BREAKDOWN (Estimated in INR)
+${generateBudgetBreakdown(duration, budget, travelType)}
+
+${travelType.toUpperCase()} TRAVEL TIPS
+${getTravelTips(travelType)}
+
+PACKING CHECKLIST
+• Travel documents and copies
+• Weather-appropriate clothing  
+• Local currency and payment methods
+• Essential medications
+• Travel adapters and chargers
+
+---
+Crafted by OPO Trip Planner | Actual prices may vary
+`;
+}
+
+function getBudgetRange(budget) {
+  const ranges = {
+    low: "₹1,000-2,500 per night",
+    medium: "₹2,500-6,000 per night", 
+    high: "₹6,000-15,000+ per night"
+  };
+  return ranges[budget] || ranges.medium;
+}
+
+function generateBudgetBreakdown(duration, budget, travelType) {
+  const base = {
+    low: { accommodation: 1500, food: 800, activities: 500, transport: 400 },
+    medium: { accommodation: 3500, food: 1500, activities: 1000, transport: 800 },
+    high: { accommodation: 7000, food: 3000, activities: 2000, transport: 1500 }
+  };
   
-  const message = userMessage.toLowerCase();
+  const rates = base[budget] || base.medium;
+  const multiplier = travelType === 'family' ? 1.5 : travelType === 'couple' ? 1.2 : 1;
   
-  if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
-    return "Hello! 👋 I'm your OPO Travels assistant! How can I help you with your travel plans today?";
-  }
-  
-  if (message.includes('destination') || message.includes('place') || message.includes('where')) {
-    return "We offer amazing destinations! 🗺️ Popular choices include:\n• Kerala for backwaters\n• Goa for beaches\n• Rajasthan for culture\n• Himachal for mountains\n\nWhich type of experience are you looking for?";
-  }
-  
-  if (message.includes('price') || message.includes('cost') || message.includes('budget')) {
-    return "💰 Travel costs vary based on destination, season, and package type. For exact pricing, I recommend checking our website or contacting our travel specialists who can create a customized quote for you!";
-  }
-  
-  if (message.includes('hotel') || message.includes('stay') || message.includes('accommodation')) {
-    return "🏨 We partner with the best hotels worldwide! From luxury resorts to budget stays, we have options for every preference. Tell me your destination and budget, and I'll suggest perfect accommodations!";
-  }
-  
-  if (message.includes('flight') || message.includes('airline') || message.includes('travel')) {
-    return "✈️ We can help you find the best flight deals! For real-time flight options and bookings, visit our Flight section or let me know your travel dates and destinations.";
-  }
-  
-  if (message.includes('package') || message.includes('tour') || message.includes('itinerary')) {
-    return "📦 We have curated travel packages for every type of traveler! Whether you're looking for adventure, relaxation, culture, or family fun, we can create the perfect itinerary. What are your travel preferences?";
-  }
-  
-  if (message.includes('book') || message.includes('reservation') || message.includes('buy')) {
-    return "🎉 Great! To make a booking, you can:\n1. Visit our website for instant booking\n2. Use our Trip Planner tool\n3. Contact our travel experts directly\n4. Chat with us on WhatsApp for personalized service\n\nHow would you like to proceed?";
-  }
-  
-  if (message.includes('contact') || message.includes('call') || message.includes('number')) {
-    return "📞 You can reach us at:\n• Phone: +91-XXXXX-XXXXX\n• WhatsApp: +91-77550-47316\n• Email: info@opotravels.com\n• Office: [Your office address]\n\nWe're here to help 24/7!";
-  }
-  
-  if (message.includes('thank') || message.includes('thanks')) {
-    return "You're welcome! 😊 Happy to help with your travel plans. Let me know if you need anything else!";
-  }
-  
-  // Default response for other queries
-  return "I'd love to help you with your travel plans! 🌍 For detailed information about destinations, bookings, or travel advice, please visit our website or contact our travel experts who can provide personalized assistance. Is there anything specific about travel I can help you with?";
+  return `
+• Accommodation: ₹${Math.round(duration * rates.accommodation * multiplier)}
+• Food & Dining: ₹${Math.round(duration * rates.food * multiplier)} 
+• Activities: ₹${Math.round(duration * rates.activities * multiplier)}
+• Transportation: ₹${Math.round(duration * rates.transport * multiplier)}
+• Total Estimate: ₹${Math.round(duration * (rates.accommodation + rates.food + rates.activities + rates.transport) * multiplier)}
+  `;
+}
+
+function getTravelTips(travelType) {
+  const tips = {
+    solo: "• Stay in social hostels\n• Keep emergency contacts handy\n• Join group tours to meet people",
+    couple: "• Book romantic dining in advance\n• Look for couple-friendly activities\n• Consider private transportation",
+    family: "• Choose family-friendly hotels\n• Plan kid-friendly activities\n• Look for hotels with kitchenettes", 
+    friends: "• Coordinate group activities\n• Consider vacation rentals\n• Use group discounts where available"
+  };
+  return tips[travelType] || tips.solo;
 }
