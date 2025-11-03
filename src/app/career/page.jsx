@@ -1,11 +1,11 @@
 import React from "react";
 
-import Hero from "../components/Hero";
+import Hero from "../components/career/Hero";
 
-import Skiper52 from "../components/ImageSlider";
-import TeamWithArrow from "../components/Boxtext";
-import CardGrid from "../components/Cards";
-import WhySection from "../components/lastSection";
+import Skiper52 from "../components/career/ImageSlider";
+import TeamWithArrow from "../components/career/Boxtext";
+import CardGrid from "../components/career/Cards";
+import WhySection from "../components/career/lastSection";
 
 
 const page = () => {
