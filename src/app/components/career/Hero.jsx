@@ -46,7 +46,7 @@ const Hero = () => {
           whileHover={{ y: -5, scale: 1.05 }}
           className="bg-[#079790] hover:bg-[#057a77] text-white text-lg font-semibold px-8 py-3 rounded-lg shadow-lg transition duration-300"
         >
-          Explore Openings
+         <Link href="/jobOpening">Explore Openings</Link> 
         </motion.button>
       </motion.div>
     </div>
